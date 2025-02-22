@@ -32,12 +32,12 @@ function Who() {
           </div>
           <div className="right-who-menu">
             <div className="plus-minus">
-              <button className="minus-button-adult minus-button" onClick={() => handleAdultCountChange("decrease")}>
-                <img src="/src/assets/icon/minus.png" alt="" />
+              <button className={`minus-button-adult minus-button ${adultCount === 0 ? 'disabled' : ''}`}  onClick={() => handleAdultCountChange("decrease")} disabled={adultCount === 0}>
+                <img src="/src/assets/icon/minus.svg" alt="" />
               </button>
               <div className="count">{adultCount}</div>
               <button className="plus-button-adult plus-button" onClick={() => handleAdultCountChange("increase")}>
-              <img src="/src/assets/icon/plus.png" alt="" />
+              <img src="/src/assets/icon/plus.svg" alt="" />
               </button>
             </div>
           </div>
@@ -51,11 +51,11 @@ function Who() {
           <div className="right-who-menu">
             <div className="plus-minus">
               <button className="minus-button minus-button-child" onClick={() => handleChildCountChange("decrease")}>
-              <img src="/src/assets/icon/minus.png" alt="" />
+              <img src="/src/assets/icon/minus.svg" alt="" />
               </button>
               <div className="count">{childCount}</div>
               <button className="plus-button plus-button-child" onClick={() => handleChildCountChange("increase")}>
-              <img src="/src/assets/icon/plus.png" alt="" />
+              <img src="/src/assets/icon/plus.svg" alt="" />
               </button>
             </div>
           </div>
@@ -69,11 +69,11 @@ function Who() {
           <div className="right-who-menu">
             <div className="plus-minus">
               <button className="minus-button minus-button-infant" onClick={() => handleInfantCountChange("decrease")}>
-              <img src="/src/assets/icon/minus.png" alt="" />
+              <img src="/src/assets/icon/minus.svg" alt="" />
               </button>
               <div className="count">{infantCount}</div>
               <button className="plus-button plus-button-infant" onClick={() => handleInfantCountChange("increase")}>
-              <img src="/src/assets/icon/plus.png" alt="" />
+              <img src="/src/assets/icon/plus.svg" alt="" />
               </button>
             </div>
           </div>
@@ -88,11 +88,11 @@ function Who() {
           <div className="right-who-menu">
             <div className="plus-minus">
               <button className="minus-button minus-button-pet" onClick={() => handlePetCountChange("decrease")}>
-              <img src="/src/assets/icon/minus.png" alt="" className="minus-button"/>
+              <img src="/src/assets/icon/minus.svg" alt="" className="minus-button"/>
               </button>
               <div className="count">{petCount}</div>
               <button className="plus-button plus-button-pet" onClick={() => handlePetCountChange("increase")}>
-              <img src="/src/assets/icon/plus.png" alt="" />
+              <img src="/src/assets/icon/plus.svg" alt="" />
               </button>
             </div>
           </div>

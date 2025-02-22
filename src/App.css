@@ -372,7 +372,6 @@ input:focus {
 .guests-search {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 /* where dropdown */
 .region-select {
@@ -438,6 +437,7 @@ input:focus {
   overflow-y: auto;
   padding: 16px 32px;
   top: 100%;
+  width: 356px;
 }
 
 .age {
@@ -478,7 +478,6 @@ input:focus {
   height: 32px;
   width: 32px;
   text-align: center;
-  display: flex;
   justify-content: center;
 }
 
@@ -489,11 +488,14 @@ input:focus {
 }
 
 .minus-button img {
-  text-align: center;
   color: rgb(106, 106, 106);
+  height: 12px;
+  width: 12px;
 }
 .plus-button img {
   color: rgb(106, 106, 106);
+  height: 12px;
+  width: 12px;
 }
 
 .bold-who-text {
@@ -516,6 +518,16 @@ input:focus {
 .display-block {
   display: block;
 }
+.minus-button.disabled {
+  background-color: #ececec;
+  border: 1px solid #d8d8d8;
+  cursor: not-allowed;
+}
+.minus-button.disabled img {
+  filter: grayscale(100%);
+}
+
+
 
 /* icon section */
 .category-icon {
