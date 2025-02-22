@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Where from "./wheresection/where";
 import Who from "./whosection/who"
+import Checkin from "./checkin/checkin";
 
 function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   console.log({ activeTab });
   const [whereSectionIsOpen, setWhereSectionIsOpen] = useState<boolean>(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("");
+  const[checkinSectionIsOpen,setCheckinSectionIsOpen] = useState <boolean>(false);
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
     setWhereSectionIsOpen(false);
@@ -26,10 +28,11 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
         </div>
         {whereSectionIsOpen && <Where onRegionSelect={handleRegionSelect}/>}
         {/* <!-- check in box --> */}
-        <div className="checkin-box search-item">
+        <div className="checkin-box search-item" onClick={() => setCheckinSectionIsOpen(true)}>
           <p className="checkin">Check in</p>
           <input type="text" name="" id="" placeholder="Add dates" readOnly />
         </div>
+        {checkinSectionIsOpen && <Checkin/>}
         {/* <!-- check out box --> */}
         <div className="checkout-box search-item">
           <p className="checkout">Check Out</p>
