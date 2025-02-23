@@ -1,15 +1,21 @@
 import { useState } from "react";
 import Where from "./wheresection/where";
-import Who from "./whosection/who"
+import Who from "./whosection/who";
 
 function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   console.log({ activeTab });
   const [whereSectionIsOpen, setWhereSectionIsOpen] = useState<boolean>(false);
-  const [whoSectionIsOpen, setWhoSectionIsOpen] = useState <boolean>(false);
+  const [whoSectionIsOpen, setWhoSectionIsOpen] = useState<boolean>(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("");
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
     setWhereSectionIsOpen(false);
+  };
+  const [guestInput, setGuestInput] = useState<string>("");
+
+  const handleGuestInputChange = (input: string) => {
+    setGuestInput(input);
+    setWhoSectionIsOpen(false);
   };
   return (
     <div className="search-box">
@@ -25,7 +31,7 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
             />
           </div>
         </div>
-        {whereSectionIsOpen && <Where onRegionSelect={handleRegionSelect}/>}
+        {whereSectionIsOpen && <Where onRegionSelect={handleRegionSelect} />}
         {/* <!-- check in box --> */}
         <div className="checkin-box search-item">
           <p className="checkin">Check in</p>
@@ -44,17 +50,23 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
         {/* <!-- guest box --> */}
         <div>
           <div className="guests-search search-item">
-            <div className="guests-box " onClick={() => setWhoSectionIsOpen(true)}>
+            <div
+              className="guests-box "
+              onClick={() => setWhoSectionIsOpen(true)}
+            >
               <p className="who">Who</p>
               <input
                 type="text"
                 name=""
                 id="whoInput"
                 placeholder="Add guests"
+                value={guestInput}
                 readOnly
               />
             </div>
-            {whoSectionIsOpen && <Who/>}
+            {whoSectionIsOpen && (
+              <Who guestInput={guestInput} setGuestInput={setGuestInput}  />
+            )}
             <div className="search-bt">
               <div className="search-button">
                 {/* <svg
