@@ -52,18 +52,18 @@ body {
   padding: 0 24px;
   flex: 1;
 }
+
 .stay,
 .exp {
   background-color: transparent;
   font-size: 16px;
   flex-direction: column;
   font-family: "Airbnb Cereal VF";
-  font-weight: 500;
   padding: 0;
   padding: 10px 16px;
   border: unset;
   transition: 0.2s ease-in;
-  color: #b1aeae;
+  color: #6a6a6a;
 }
 .stay:hover,
 .exp:hover {
@@ -72,15 +72,10 @@ body {
   border-radius: 22px;
 }
 
-.stay,
-.exp {
+.header-tab-active{
   font-size: 1rem;
-  background-color: transparent;
-  border: none;
-  color: #6a6a6a;
-  padding: 10px 12px;
-  border-radius: 3rem;
-  font-family: "Airbnb Cereal VF";
+  font-weight: 500;
+  color: black;
 }
 
 .home {

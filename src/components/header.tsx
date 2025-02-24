@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "/src/assets/images/logo.svg";
 import global from "/src/assets/icon/global.svg";
 import menu from "/src/assets/icon/menu.svg";
@@ -8,7 +8,23 @@ import Search from "./searchbox/search";
 function Header() {
   const [activeTab, setActiveTab] = useState<"Stays" | "Experiences">("Stays");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  console.log(isDropdownOpen)
+   const profileRef = useRef<HTMLButtonElement | null>(null);
+  
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileRef.current && !profileRef.current.contains(event?.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+  
+    useEffect(() => {
+      if (isDropdownOpen) {
+        document.addEventListener('click', handleClickOutside);
+      }
+  
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
+    }, [isDropdownOpen]);
 
   return (
     <div>
@@ -19,13 +35,13 @@ function Header() {
 
         <div className="header-center">
           <button
-            className={`stay ${activeTab === "Stays" ? "Active" : ""}`}
+            className={`stay ${activeTab === "Stays" ? "header-tab-active" : ""}`}
             onClick={() => setActiveTab("Stays")}
           >
             Stays
           </button>
           <button
-            className={`exp ${activeTab === "Experiences" ? "Active" : ""}`}
+            className={`exp ${activeTab === "Experiences" ? "header-tab-active" : ""}`}
             onClick={() => setActiveTab("Experiences")}
           >
             Experiences
@@ -42,10 +58,11 @@ function Header() {
             </a>
           </div>
 
-          <div className="menu">
+          <div className="menu" >
             <button
               className="hamburger-menu"
-              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              onClick={() => setIsDropdownOpen((prev) => !prev) }
+              ref={profileRef}
             >
               <img className="menu-img" src={menu} alt="Menu icon" />
               <img className="avatar" src={avatar} alt="User avatar" />
