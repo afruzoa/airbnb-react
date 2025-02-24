@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Airbnb Cereal VF";
-  src: url(/font/AirbnbCerealVF_W_Wght.woff2);
+  src: url(/src/assets/Font/AirbnbCerealVF_W_Wght.woff2);
 }
 
 @font-face {
   font-family: "Airbnb Cereal VF Cyril";
-  src: url(/font/AirbnbCerealVF_Cyril_W_Wght.woff2);
+  src: url(/src/assets/Font/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
 
 body {
@@ -65,7 +65,7 @@ main {
   padding: 10px 16px;
   border: unset;
   transition: 0.2s ease-in;
-  color: #b1aeae;
+  color: #6a6a6a;
 }
 .stay:hover,
 .exp:hover {
@@ -73,16 +73,8 @@ main {
   background-color: #f2f1f1;
   border-radius: 22px;
 }
-
-.stay,
-.exp {
-  font-size: 1rem;
-  background-color: transparent;
-  border: none;
-  color: #6a6a6a;
-  padding: 10px 12px;
-  border-radius: 3rem;
-  font-family: "Airbnb Cereal VF";
+.header-tab-active{
+  color:black;
 }
 
 .home {
