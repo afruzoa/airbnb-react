@@ -1,12 +1,18 @@
 import Header from "./components/header";
 import "/src/App.css";
+import Footer from "./components/footersection/footer";
+import Inspiration from "./components/footersection/inspiration";
 import Cards from "./components/cards";
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Cards />
-    </div>
+ <>  
+<main>
+ <Header />
+ <Cards/>
+ <Inspiration/>
+ </main>
+ <Footer/>
+ </>
   );
 };
 
