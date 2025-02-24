@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Airbnb Cereal VF";
-  src: url(assets/Font/AirbnbCerealVF_W_Wght.woff2);
+  src: url(/font/AirbnbCerealVF_W_Wght.woff2);
 }
 
 @font-face {
   font-family: "Airbnb Cereal VF Cyril";
-  src: url(assets/Font/AirbnbCerealVF_Cyril_W_Wght.woff2);
+  src: url(/font/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
 
 body {
@@ -17,12 +17,12 @@ body {
   padding: 0 80px;
 }
 
-.hamburger-menu,
+.hamburger,
 .language,
 .home,
 .exp,
 .stay,
-.logo,
+.logo-name,
 .plus-button,
 .minus-button {
   cursor: pointer;
@@ -52,18 +52,18 @@ body {
   padding: 0 24px;
   flex: 1;
 }
-
 .stay,
 .exp {
   background-color: transparent;
   font-size: 16px;
   flex-direction: column;
   font-family: "Airbnb Cereal VF";
+  font-weight: 500;
   padding: 0;
   padding: 10px 16px;
   border: unset;
   transition: 0.2s ease-in;
-  color: #6a6a6a;
+  color: #b1aeae;
 }
 .stay:hover,
 .exp:hover {
@@ -72,10 +72,15 @@ body {
   border-radius: 22px;
 }
 
-.header-tab-active {
+.stay,
+.exp {
   font-size: 1rem;
-  font-weight: 500;
-  color: black;
+  background-color: transparent;
+  border: none;
+  color: #6a6a6a;
+  padding: 10px 12px;
+  border-radius: 3rem;
+  font-family: "Airbnb Cereal VF";
 }
 
 .home {
@@ -105,7 +110,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.global img {
+.global img{
   width: 16px;
   height: 16px;
 }
@@ -123,7 +128,7 @@ body {
 .menu {
   position: relative;
 }
-.menu-img {
+.menu-img{
   width: 100%;
   height: 100%;
 }
@@ -153,6 +158,7 @@ hr {
   position: absolute;
   top: 100%;
   right: 0;
+  display: none;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -166,8 +172,6 @@ hr {
 }
 
 .avatar {
-  width: 30px;
-  height: 30px;
   color: #717171;
 }
 
@@ -191,7 +195,7 @@ hr {
   height: 26px;
   width: 26px;
 }
-.menu-img {
+.menu-img{
   height: 16px;
   width: 16px;
 }
@@ -367,12 +371,16 @@ input:focus {
   background-color: #fa2229;
   cursor: pointer;
 }
-.search-icon {
+.search-icon{
+  height: 16px;
   width: 16px;
+  color: white;
 }
+
 .guests-search {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 /* where dropdown */
 .region-select {
@@ -425,8 +433,60 @@ input:focus {
   font-family: "Airbnb Cereal VF";
   margin: 0 2px;
 }
+/* datepicker */
+.micro-date {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+.micro-flex {
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 64%;
+  font-size: 12px;
+}
+.micro-date span,
+.exact-date {
+  white-space: nowrap;
+}
+.cal-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 10px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 3px 12px 0 rgb(0 0 0 / 0.15);
+}
+
+.CalendarDay {
+  width: 38px !important;
+  height: 38px !important;
+  border: 0px;
+  border-collapse: separate;
+  border-radius: 50%;
+  margin: 10px;
+}
+.CalendarDay__default:hover{
+  outline: 1px solid #000;
+  border-collapse: separate;
+  border: 0px;
+
+}
+
 /* dropdown who */
 .who-menu {
+  display: none;
   position: absolute;
   right: 0;
   z-index: 2;
@@ -438,7 +498,10 @@ input:focus {
   overflow-y: auto;
   padding: 16px 32px;
   top: 100%;
-  width: 356px;
+}
+
+.who-menu.active {
+  display: block;
 }
 
 .age {
@@ -479,7 +542,9 @@ input:focus {
   height: 32px;
   width: 32px;
   text-align: center;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .plus-button:hover {
@@ -488,15 +553,12 @@ input:focus {
   background: white;
 }
 
-.minus-button img {
+.minus-button svg {
+  text-align: center;
   color: rgb(106, 106, 106);
-  height: 12px;
-  width: 12px;
 }
-.plus-button img {
+.plus-button svg {
   color: rgb(106, 106, 106);
-  height: 12px;
-  width: 12px;
 }
 
 .bold-who-text {
@@ -511,7 +573,6 @@ input:focus {
 .pet-q {
   padding-top: 4px;
   color: #797979;
-  flex-wrap: nowrap;
 }
 .display-none {
   display: none;
@@ -519,13 +580,28 @@ input:focus {
 .display-block {
   display: block;
 }
-.minus-button.disabled {
-  background-color: #ececec;
-  border: 1px solid #d8d8d8;
-  cursor: not-allowed;
+/* checkin */
+
+.micro-date {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
 }
-.minus-button.disabled img {
-  filter: grayscale(100%);
+.micro-flex {
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 64%;
+  font-size: 12px;
+}
+.micro-date span,
+.exact-date {
+  white-space: nowrap;
 }
 
 /* icon section */
