@@ -87,7 +87,7 @@ const getCategoryRooms = (id:number) => {fetch(`http://localhost:3000/api/rooms/
                 </div>
               </a>
                 <button className="share-btn">
-                <img src="./images/share.svg" alt="Share" />
+                <img src="src/assets/icon/share.svg" alt="Share" />
               </button>
             </div>)}
         </div>
