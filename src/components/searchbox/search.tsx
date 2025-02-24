@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Where from "./wheresection/where";
 import Who from "./whosection/who";
+import Checkin from "./checkin/checkin";
 
 function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   console.log({ activeTab });
@@ -20,7 +21,9 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   // };
   const whereRef = useRef<HTMLDivElement | null>(null);
   const whoRef = useRef<HTMLDivElement | null>(null);
-  const handleClickOutside = (event: MouseEvent) => {
+  const checkinRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutside = (event:MouseEvent) => {
     if (
       openSection === "where" &&
       !whereRef?.current?.contains(event?.target as Node)
@@ -32,10 +35,17 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
       openSection === "who" &&
       !whoRef?.current?.contains(event?.target as Node)
     ) {
-      console.log("close who");
       setOpenSection("");
     }
-  };
+
+  if (
+    openSection === "checkin" &&
+    !checkinRef?.current?.contains(event?.target as Node)
+  ) {
+    setOpenSection("");
+  }
+  }
+
 
   useEffect(() => {
     if (openSection !== "") {
@@ -53,7 +63,6 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
         <div
           className={`where-box ${openSection !== "where" && "bg-gray"}`}
           onClick={() => {
-            // setWhereSectionIsOpen(true);
             setOpenSection("where");
           }}
           ref={whereRef}
@@ -73,7 +82,9 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
         )}
         {activeTab === "Stays" ? (
           <>
-            <div className="checkin-box search-item">
+            <div className="checkin-box search-item" 
+            ref={checkinRef}
+              onClick={() => setOpenSection("checkin")}>
               <p className="checkin">Check in</p>
               <input
                 type="text"
@@ -82,6 +93,9 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
                 placeholder="Add dates"
                 readOnly
               />
+              {openSection === "checkin" && (
+          <Checkin />
+        )}
             </div>
             <div className="checkout-box search-item">
               <p className="checkout">Check Out</p>
@@ -104,10 +118,13 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
         {/* <!-- guest box --> */}
         <div>
           <div className="guests-search search-item">
+            <>
             <div
               className="guests-box"
+              onClick={() => {
+                setOpenSection("who");
+              }}
               ref={whoRef}
-              onClick={() => setOpenSection("who")}
             >
               <p className="who">Who</p>
               <input
@@ -118,9 +135,9 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
                 value={guestInput}
                 readOnly
               />
-              {openSection === "who" && <Who setGuestInput={setGuestInput} />}
             </div>
-
+            {openSection === "who" && <Who setGuestInput={setGuestInput} />}
+            </>
             <div className="search-bt">
               <div className="search-button">
                 <img
@@ -135,6 +152,6 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
       </div>
     </div>
   );
-}
+};
 
 export default Search;
