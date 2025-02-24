@@ -8,6 +8,7 @@ import Search from "./searchbox/search";
 function Header() {
   const [activeTab, setActiveTab] = useState<"Stays" | "Experiences">("Stays");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  console.log(isDropdownOpen)
 
   return (
     <div>

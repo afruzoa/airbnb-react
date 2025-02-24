@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Where from "./wheresection/where";
-import Who from "./whosection/who"
+import Who from "./whosection/who";
 
 function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   console.log({ activeTab });
@@ -24,7 +24,7 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
             />
           </div>
         </div>
-        {whereSectionIsOpen && <Where onRegionSelect={handleRegionSelect}/>}
+        {whereSectionIsOpen && <Where onRegionSelect={handleRegionSelect} />}
         {/* <!-- check in box --> */}
         <div className="checkin-box search-item">
           <p className="checkin">Check in</p>
@@ -55,12 +55,16 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
             </div>
             <div className="search-bt">
               <div className="search-button">
-                <img src="src/assets/icon/search.svg" alt="" className="search-icon" />
+                <img
+                  src="src/assets/icon/search.svg"
+                  alt=""
+                  className="search-icon"
+                />
               </div>
             </div>
           </div>
         </div>
-        <Who/>
+        <Who />
       </div>
     </div>
   );
