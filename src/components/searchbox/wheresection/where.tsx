@@ -32,7 +32,7 @@ export const Region = [
     name: "Im flexible",
     image: "/src/assets/country/flexible.jpg",
   },
-  { id: 2, name: "UnitedState", image: "../" },
+  { id: 2, name: "UnitedState", image: "/src/assets/country/united.webp" },
   { id: 3, name: "Spain", image: "/src/assets/country/spain.webp" },
   { id: 4, name: "Southeast Asia", image: "/src/assets/country/asia.webp" },
   { id: 5, name: "Italy", image: "/src/assets/country/italy.webp" },
