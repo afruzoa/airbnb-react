@@ -1,16 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import useOutsideClick from "../../../hooks/useOutsideClick";
+import { useEffect, useState } from "react";
+
 interface WhoProps {
-  guestInput: string;
   setGuestInput: (input: string) => void;
-  setWhoSectionIsOpen: (isOpen: boolean) => void;
 }
-function Who({ guestInput, setGuestInput,setWhoSectionIsOpen }: WhoProps) {
+function Who({ setGuestInput }: WhoProps) {
   const [adultCount, setAdultCount] = useState(2);
   const [childCount, setChildCount] = useState(0);
   const [infantCount, setInfantCount] = useState(0);
   const [petCount, setPetCount] = useState(0);
-  const whoRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let guestSummary = `${adultCount + childCount} Guest${adultCount + childCount !== 1 ? "s" : ""}`;
     
@@ -24,15 +21,12 @@ function Who({ guestInput, setGuestInput,setWhoSectionIsOpen }: WhoProps) {
 
     setGuestInput(guestSummary);
   }, [adultCount, childCount, infantCount, petCount, setGuestInput]);
-
-
-
-  useOutsideClick(whoRef, () => setWhoSectionIsOpen(false));
   const handleAdultCountChange = (type: string) => {
     setAdultCount((prevCount) =>
       type === "increase" ? prevCount + 1 : Math.max(0, prevCount - 1)
     );
   };
+
 
   const handleChildCountChange = (type: string) => {
     setChildCount((prevCount) =>
@@ -53,7 +47,7 @@ function Who({ guestInput, setGuestInput,setWhoSectionIsOpen }: WhoProps) {
   };
 
   return (
-    <div ref={whoRef} className="who-menu">
+    <div className="who-menu">
       <div className="inner-who-menu">
         <div className="age">
           <div className="adult-text">

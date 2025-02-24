@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Airbnb Cereal VF";
-  src: url(/font/AirbnbCerealVF_W_Wght.woff2);
+  src: url(assets/Font/AirbnbCerealVF_W_Wght.woff2);
 }
 
 @font-face {
   font-family: "Airbnb Cereal VF Cyril";
-  src: url(/font/AirbnbCerealVF_Cyril_W_Wght.woff2);
+  src: url(assets/Font/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
 
 body {
@@ -17,12 +17,12 @@ body {
   padding: 0 80px;
 }
 
-.hamburger,
+.hamburger-menu,
 .language,
 .home,
 .exp,
 .stay,
-.logo-name,
+.logo,
 .plus-button,
 .minus-button {
   cursor: pointer;
@@ -52,18 +52,18 @@ body {
   padding: 0 24px;
   flex: 1;
 }
+
 .stay,
 .exp {
   background-color: transparent;
   font-size: 16px;
   flex-direction: column;
   font-family: "Airbnb Cereal VF";
-  font-weight: 500;
   padding: 0;
   padding: 10px 16px;
   border: unset;
   transition: 0.2s ease-in;
-  color: #b1aeae;
+  color: #6a6a6a;
 }
 .stay:hover,
 .exp:hover {
@@ -72,15 +72,10 @@ body {
   border-radius: 22px;
 }
 
-.stay,
-.exp {
+.header-tab-active {
   font-size: 1rem;
-  background-color: transparent;
-  border: none;
-  color: #6a6a6a;
-  padding: 10px 12px;
-  border-radius: 3rem;
-  font-family: "Airbnb Cereal VF";
+  font-weight: 500;
+  color: black;
 }
 
 .home {
@@ -110,7 +105,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+.global img {
+  width: 16px;
+  height: 16px;
+}
 .global:hover {
   background-color: #ebebeb;
 }
@@ -125,7 +123,10 @@ body {
 .menu {
   position: relative;
 }
-
+.menu-img {
+  width: 100%;
+  height: 100%;
+}
 .nav-menu {
   list-style-type: none;
   padding: 0px;
@@ -152,7 +153,6 @@ hr {
   position: absolute;
   top: 100%;
   right: 0;
-  display: none;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -173,7 +173,7 @@ hr {
 
 .hamburger-menu {
   display: flex;
-  height: 30px;
+  height: 38px;
   align-items: center;
   gap: 10px;
   border: 1px solid #ddd;
@@ -187,11 +187,10 @@ hr {
   box-shadow: 0px 3px 7px 1px #d7cdcd;
 }
 
-.avatar,
-.menu-img {
-  height: 100%;
+.avatar {
+  height: 26px;
+  width: 26px;
 }
-
 .menu-img {
   height: 16px;
   width: 16px;
@@ -368,7 +367,9 @@ input:focus {
   background-color: #fa2229;
   cursor: pointer;
 }
-
+.search-icon {
+  width: 16px;
+}
 .guests-search {
   display: flex;
   align-items: center;
@@ -526,8 +527,6 @@ input:focus {
 .minus-button.disabled img {
   filter: grayscale(100%);
 }
-
-
 
 /* icon section */
 .category-icon {
