@@ -73,8 +73,8 @@ main {
   background-color: #f2f1f1;
   border-radius: 22px;
 }
-.header-tab-active{
-  color:black;
+.header-tab-active {
+  color: black;
 }
 
 .home {
@@ -215,6 +215,8 @@ hr {
 
 .where-box {
   width: 230px;
+  position: relative;
+  border-radius: 40px;
 }
 
 .where-box p,
@@ -239,14 +241,10 @@ hr {
 .date-box input:hover {
   background-color: #f2f1f1;
 }
-.where-box,
-.checkout-box,
-.checkin-box {
-  position: relative;
-}
-.where-box::after,
-.date-box::after,
-.checkout-box::after,
+
+.where-box ::after,
+.date-box ::after,
+.checkout-box ::after,
 .checkin-box ::after {
   width: 1px;
   height: 40px;
@@ -257,11 +255,16 @@ hr {
   top: 50%;
   transform: translate(0, -50%);
 }
+
 input:focus {
   border: none;
   outline: none;
 }
-
+.searchBoxDatePicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .checkin-box {
   width: 140px;
 }
@@ -373,7 +376,6 @@ input:focus {
 .guests-search {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 /* where dropdown */
 .region-select {
@@ -426,55 +428,6 @@ input:focus {
   font-family: "Airbnb Cereal VF";
   margin: 0 2px;
 }
-/* datepicker */
-.micro-date {
-  width: 12px;
-  height: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-}
-.micro-flex {
-  padding: 8px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 64%;
-  font-size: 12px;
-}
-.micro-date span,
-.exact-date {
-  white-space: nowrap;
-}
-.cal-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  margin-top: 10px;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: 0 3px 12px 0 rgb(0 0 0 / 0.15);
-}
-
-.CalendarDay {
-  width: 38px !important;
-  height: 38px !important;
-  border: 0px;
-  border-collapse: separate;
-  border-radius: 50%;
-  margin: 10px;
-}
-.CalendarDay__default:hover {
-  outline: 1px solid #000;
-  border-collapse: separate;
-  border: 0px;
-}
 
 /* dropdown who */
 .who-menu {
@@ -489,10 +442,7 @@ input:focus {
   overflow-y: auto;
   padding: 16px 32px;
   top: 100%;
-}
-
-.who-menu.active {
-  display: block;
+  width: 356px;
 }
 
 .age {
@@ -533,9 +483,7 @@ input:focus {
   height: 32px;
   width: 32px;
   text-align: center;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .plus-button:hover {
@@ -544,12 +492,15 @@ input:focus {
   background: white;
 }
 
-.minus-button svg {
-  text-align: center;
+.minus-button img {
   color: rgb(106, 106, 106);
+  height: 12px;
+  width: 12px;
 }
-.plus-button svg {
+.plus-button img {
   color: rgb(106, 106, 106);
+  height: 12px;
+  width: 12px;
 }
 
 .bold-who-text {
@@ -564,6 +515,7 @@ input:focus {
 .pet-q {
   padding-top: 4px;
   color: #797979;
+  flex-wrap: nowrap;
 }
 .display-none {
   display: none;
@@ -571,8 +523,69 @@ input:focus {
 .display-block {
   display: block;
 }
-/* checkin */
+.minus-button.disabled {
+  background-color: #ececec;
+  border: 1px solid #d8d8d8;
+  cursor: not-allowed;
+}
+.minus-button.disabled img {
+  filter: grayscale(100%);
+}
 
+.display-none {
+  display: none;
+}
+.display-block {
+  display: block;
+}
+/* checkin */
+.checkin-container {
+  box-shadow: 0 3px 12px 0 rgb(0 0 0/0.15);
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 10px;
+  padding: 1rem 2rem;
+  border-radius: 32px;
+  overflow-x: hidden;
+  z-index: 100;
+  position: absolute;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.checkin-header {
+  border: 2px solid #ebebeb;
+  justify-content: space-around;
+  align-items: center;
+  width: 303px;
+  background-color: #ebebeb;
+  padding: 0 4px;
+  margin: 0 auto;
+  border-radius: 30px;
+  display: flex;
+}
+
+.checkin-date,
+.checkin-month,
+.checkin-flex {
+  background-color: #ebebeb;
+  padding: 8px 12px;
+  margin: 4px 2px 4px 0;
+  font-size: 14px;
+  font-family: "roboto";
+  border-radius: 100px;
+  position: relative;
+  text-align: center;
+  border: unset;
+  flex: 1;
+}
+.checkin-date:hover,
+.checkin-month:hover,
+.checkin-flex:hover {
+  background-color: #dddddd;
+}
 .micro-date {
   width: 12px;
   height: 12px;
@@ -593,6 +606,21 @@ input:focus {
 .micro-date span,
 .exact-date {
   white-space: nowrap;
+}
+
+/* datepicker */
+.CalendarDay {
+  width: 38px !important;
+  height: 38px !important;
+  border: 0px;
+  border-collapse: separate;
+  border-radius: 50%;
+  margin: 10px;
+}
+.CalendarDay__default:hover {
+  outline: 1px solid #000;
+  border-collapse: separate;
+  border: 0px;
 }
 
 /* icon section */
@@ -665,23 +693,24 @@ input:focus {
   font-family: "Airbnb Cereal VF";
 }
 
-.prev-btn,
-.next-btn {
+.prev-next-btn {
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 0.5px solid rgb(0 0 0/0.3);
   border-radius: 50%;
-  padding: 10px;
+  padding: 0;
   cursor: pointer;
   top: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.prev-btn {
-  left: 10px;
-}
-
-.next-btn {
-  right: 10px;
+.prev-img, .next-img {
+  width: 12px;
+  height: 12px;
 }
 
 /* filter button */

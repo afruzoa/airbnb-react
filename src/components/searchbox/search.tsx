@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Where from "./wheresection/where";
 import Who from "./whosection/who";
-import Checkin from "./checkin/checkin";
+import DatePicker from "./checkin/checkin";
 
 function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   console.log({ activeTab });
@@ -22,13 +22,13 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   const whereRef = useRef<HTMLDivElement | null>(null);
   const whoRef = useRef<HTMLDivElement | null>(null);
   const checkinRef = useRef<HTMLDivElement | null>(null);
-console.log(openSection)
-  const handleClickOutside = (event:MouseEvent) => {
+  const checkoutRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
     if (
       openSection === "where" &&
       !whereRef?.current?.contains(event?.target as Node)
     ) {
-      console.log("close where");
       setOpenSection("");
     }
     if (
@@ -38,14 +38,19 @@ console.log(openSection)
       setOpenSection("");
     }
 
-  if (
-    openSection === "checkin" &&
-    !checkinRef?.current?.contains(event?.target as Node)
-  ) {
-    setOpenSection("");
-  }
-  }
-
+    if (
+      openSection === "checkin" &&
+      !checkinRef?.current?.contains(event?.target as Node)
+    ) {
+      setOpenSection("");
+    }
+    if (
+      openSection === "checkout" &&
+      !checkoutRef?.current?.contains(event?.target as Node)
+    ) {
+      setOpenSection("");
+    }
+  };
 
   useEffect(() => {
     if (openSection !== "") {
@@ -59,9 +64,9 @@ console.log(openSection)
 
   return (
     <div className="search-box">
-      <div className="search-bar">
+      <div className={`search-bar ${openSection && "bg-grey"}`}>
         <div
-          className={`where-box ${openSection !== "where" && "bg-gray"}`}
+          className={`where-box ${openSection === "where" && "bg-white"}`}
           onClick={() => {
             setOpenSection("where");
           }}
@@ -82,9 +87,13 @@ console.log(openSection)
         )}
         {activeTab === "Stays" ? (
           <>
-            <div className="checkin-box search-item" 
-            ref={checkinRef}
-              onClick={() => setOpenSection("checkin")}>
+            <div
+              className={`checkin-box search-item ${
+                openSection === "checkin" && "bg-white"
+              }`}
+              ref={checkinRef}
+              onClick={() => setOpenSection("checkin")}
+            >
               <p className="checkin">Check in</p>
               <input
                 type="text"
@@ -93,11 +102,14 @@ console.log(openSection)
                 placeholder="Add dates"
                 readOnly
               />
-              {openSection === "checkin" && (
-          <Checkin />
-        )}
             </div>
-            <div className="checkout-box search-item">
+            <div
+              className={`checkout-box search-item ${
+                openSection === "checkout" && "bg-white"
+              }`}
+              ref={checkoutRef}
+              onClick={() => setOpenSection("checkout")}
+            >
               <p className="checkout">Check Out</p>
               <input
                 type="text"
@@ -114,29 +126,34 @@ console.log(openSection)
             <input type="text" name="" id="" placeholder="Add dates" readOnly />
           </div>
         )}
-
+        {(openSection === "checkin" || openSection === "checkout") && (
+          <DatePicker />
+        )}
         {/* <!-- guest box --> */}
         <div>
-          <div className="guests-search search-item">
+          <div
+            className={`guests-search search-item ${
+              openSection === "who" && "bg-white"
+            }`}
+          >
             <>
-            <div
-              className="guests-box"
-              onClick={() => {
-                setOpenSection("who");
-              }}
-              ref={whoRef}
-            >
-              <p className="who">Who</p>
-              <input
-                type="text"
-                name=""
-                id="whoInput"
-                placeholder="Add guests"
-                value={guestInput}
-                readOnly
-              />
-            </div>
-            {openSection === "who" && <Who setGuestInput={setGuestInput} />}
+              <div
+                className={`guests-box `}
+                onClick={() => {
+                  setOpenSection("who");
+                }}
+                ref={whoRef}
+              >
+                <p className="who">Who</p>
+                <input
+                  type="text"
+                  name=""
+                  id="whoInput"
+                  placeholder="Add guests"
+                  value={guestInput}
+                  readOnly
+                />
+              </div>
             </>
             <div className="search-bt">
               <div className="search-button">
@@ -148,10 +165,11 @@ console.log(openSection)
               </div>
             </div>
           </div>
+          {openSection === "who" && <Who setGuestInput={setGuestInput} />}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Search;
