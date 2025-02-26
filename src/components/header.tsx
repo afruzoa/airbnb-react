@@ -5,17 +5,25 @@ import menu from "/src/assets/icon/menu.svg";
 import avatar from "/src/assets/icon/avatar.svg";
 import Search from "./searchbox/search";
 import Signup from "./modals/login";
+import Language from "./modals/language";
 
 function Header() {
   const [activeTab, setActiveTab] = useState<"Stays" | "Experiences">("Stays");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen,setIsModalOpen] = useState(false)
+  const[isGlobalOpen,setIsGlobalOpen] = useState(false)
    const profileRef = useRef<HTMLButtonElement | null>(null);
    const openModal = () => {
     setIsModalOpen(true);
 };
 const closeModal = () => {
     setIsModalOpen(false);
+};
+const openGlobal = () => {
+  setIsGlobalOpen(true);
+};
+const closeGlobal = () => {
+  setIsGlobalOpen(false);
 };
     const handleClickOutside = (event: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(event?.target as Node)) {
@@ -61,10 +69,18 @@ const closeModal = () => {
             <a href="#" className="home">
               Airbnb your home
             </a>
-            <a href="#" className="global">
+            <a href="#" className="global" onClick={openGlobal}>
               <img className="global-logo" src={global} alt="Global icon" />
             </a>
           </div>
+          {isGlobalOpen && (
+        <div className="modal-global">
+          <div className="modal-global-content">
+            <Language closeGlobal={closeGlobal} /> 
+            </div>
+            <div className="modal-global-overlay" onClick={closeGlobal}></div> 
+        </div>
+      )}
 
           <div className="menu" >
             <button

@@ -1101,7 +1101,7 @@ input:focus {
 .greeting-container{
   padding: 32px;
 }
-.modal{
+.modal,.modal-global{
   position: fixed;
   top: 0;
   left: 0;
@@ -1112,7 +1112,7 @@ input:focus {
   align-items: center;
   z-index: 99990;
 }
-.modal-overlay{
+.modal-overlay,.modal-global-overlay{
   position: absolute;
   top: 0;
   left: 0;
@@ -1147,4 +1147,48 @@ input:focus {
   font-size: 0.75rem ;
   line-height: 1rem ;
   font-weight: 400 ;
+}
+.lan-currency{
+  background-color: #fff;
+  border-radius: 8px;
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.lan-currency-tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+}
+.lan-currency-tabs button {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s ease;
+}
+.lan-currency-tabs button:hover {
+  color: #007a91;
+}
+.languages-regions{
+  display: flex;
+}
+ .translation{
+  width: 19px;
+  height: 19px;
+ }
+ .lan-currency-header img{
+  width: 16px;
+  height: 16px;
+ }
+ .lan-currency-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
 }
