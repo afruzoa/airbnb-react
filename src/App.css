@@ -1006,3 +1006,145 @@ input:focus {
   width: 16px;
   height: 16px;
 }
+/* signin modal */
+.login-header img{
+  width: 16px;
+  height: 16px;
+}
+.login-header{
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  padding: 0 24px;
+  height: 64px;
+}
+.login-header h1{
+  font-size: 16px;
+}
+.greeting{
+  font-size: 1.375rem;
+  line-height: 1.625rem;
+  color: #222222 ;
+  font-weight: 500 ;
+  margin-bottom: 8px ;
+}
+.signup-box{
+  border-radius: 8px;
+  position: relative;
+  display: grid;
+}
+.signup-form{
+  background-color: white;
+  width: 566px;
+  border-radius: 12px;
+  border:  solid rgb(176, 176, 176);
+  font-family: "Airbnb Cereal VF";
+}
+.icon-login img{
+  width: 20px;
+  height: 20px;
+  
+}
+.social-login{
+  display: grid;
+}
+.login-divider ::before{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px; 
+  background-color: #DDDDDD;
+  margin-right: 16px;
+}
+.or {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-divider ::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px; 
+  background-color: #DDDDDD;
+  margin-right: 16px;
+}
+.continue-btn{
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+.continue-btn button {
+  width: 100%;
+  height: 100%;
+  background-color: #E31C5B;
+  transition: opacity 1.25s;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  font-family: "Airbnb Cereal VF";
+}
+.icon-login{
+  display: flex;
+ justify-content: stretch;
+   align-items: center;
+   margin-bottom: 16px;
+   width: 100%;
+  padding: 13px 23px;
+  border-radius: 10px;
+  border: 1px solid black;
+   
+}
+.greeting-container{
+  padding: 32px;
+}
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99990;
+}
+.modal-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+#country-select{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+}
+.phone-box{
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: white;
+  cursor: pointer;
+}
+.phone-box input{
+  border: none;
+}
+.greeting-container p, .privacy{
+  margin-top: 8px ;
+  color: #222222 ;
+  font-size: 0.75rem ;
+  line-height: 1rem ;
+  font-weight: 400 ;
+}

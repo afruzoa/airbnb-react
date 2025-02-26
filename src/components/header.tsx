@@ -4,12 +4,19 @@ import global from "/src/assets/icon/global.svg";
 import menu from "/src/assets/icon/menu.svg";
 import avatar from "/src/assets/icon/avatar.svg";
 import Search from "./searchbox/search";
+import Signup from "./modals/login";
 
 function Header() {
   const [activeTab, setActiveTab] = useState<"Stays" | "Experiences">("Stays");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isModalOpen,setIsModalOpen] = useState(false)
    const profileRef = useRef<HTMLButtonElement | null>(null);
-  
+   const openModal = () => {
+    setIsModalOpen(true);
+};
+const closeModal = () => {
+    setIsModalOpen(false);
+};
     const handleClickOutside = (event: MouseEvent) => {
       if (profileRef.current && !profileRef.current.contains(event?.target as Node)) {
         setIsDropdownOpen(false);
@@ -73,7 +80,7 @@ function Header() {
           {isDropdownOpen && (
             <div className="dropdown-menu">
               <ul className="nav-menu">
-                <li>Sign up</li>
+                <li onClick={openModal}>Sign up</li>
                 <li>Log in</li>
                 <hr />
                 <li>Gift cards</li>
@@ -86,6 +93,14 @@ function Header() {
         </div>
       </div>
       <Search activeTab={activeTab} />
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <Signup closeModal={closeModal} /> 
+          </div>
+          <div className="modal-overlay" onClick={closeModal}></div> 
+        </div>
+      )}
     </div>
   );
 }
