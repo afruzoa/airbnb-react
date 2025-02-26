@@ -22,7 +22,7 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   const whereRef = useRef<HTMLDivElement | null>(null);
   const whoRef = useRef<HTMLDivElement | null>(null);
   const checkinRef = useRef<HTMLDivElement | null>(null);
-
+console.log(openSection)
   const handleClickOutside = (event:MouseEvent) => {
     if (
       openSection === "where" &&

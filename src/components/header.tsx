@@ -25,6 +25,7 @@ function Header() {
         document.removeEventListener('click', handleClickOutside);
       };
     }, [isDropdownOpen]);
+    console.log(isDropdownOpen)
 
   return (
     <div>
