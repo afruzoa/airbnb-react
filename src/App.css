@@ -626,7 +626,8 @@ input:focus {
 /* icon section */
 .category-icon {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 16px;
   align-items: center;
   padding-top: 12px;
 }
@@ -645,7 +646,7 @@ input:focus {
 .icon-slider {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 90%;
   margin-top: 20px;
   position: relative;
   justify-content: center;
@@ -708,31 +709,10 @@ input:focus {
   align-items: center;
 }
 
-.prev-img, .next-img {
+.prev-img,
+.next-img {
   width: 12px;
   height: 12px;
-}
-
-/* filter button */
-.filter-button {
-  display: flex;
-  align-items: center;
-  border-radius: 25px;
-}
-
-.filter-icon {
-  display: flex;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  gap: 10px;
-  border: 1px solid;
-  padding: 14px 16px 14px 16px;
-  box-sizing: border-box;
-}
-
-.filter-text {
-  font-size: 14px;
 }
 
 /* main */
@@ -1007,53 +987,52 @@ input:focus {
   height: 16px;
 }
 /* signin modal */
-.login-header img{
+.login-header img {
   width: 16px;
   height: 16px;
 }
-.login-header{
+.login-header {
   display: flex;
   justify-content: stretch;
   align-items: center;
   padding: 0 24px;
   height: 64px;
 }
-.login-header h1{
+.login-header h1 {
   font-size: 16px;
 }
-.greeting{
+.greeting {
   font-size: 1.375rem;
   line-height: 1.625rem;
-  color: #222222 ;
-  font-weight: 500 ;
-  margin-bottom: 8px ;
+  color: #222222;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
-.signup-box{
+.signup-box {
   border-radius: 8px;
   position: relative;
   display: grid;
 }
-.signup-form{
+.signup-form {
   background-color: white;
   width: 566px;
   border-radius: 12px;
-  border:  solid rgb(176, 176, 176);
+  border: solid rgb(176, 176, 176);
   font-family: "Airbnb Cereal VF";
 }
-.icon-login img{
+.icon-login img {
   width: 20px;
   height: 20px;
-  
 }
-.social-login{
+.social-login {
   display: grid;
 }
-.login-divider ::before{
-  content: '';
+.login-divider ::before {
+  content: "";
   display: block;
   width: 100%;
-  height: 1px; 
-  background-color: #DDDDDD;
+  height: 1px;
+  background-color: #dddddd;
   margin-right: 16px;
 }
 .or {
@@ -1062,22 +1041,22 @@ input:focus {
   align-items: center;
   justify-content: center;
 }
-.login-divider ::after{
-  content: '';
+.login-divider ::after {
+  content: "";
   display: block;
   width: 100%;
-  height: 1px; 
-  background-color: #DDDDDD;
+  height: 1px;
+  background-color: #dddddd;
   margin-right: 16px;
 }
-.continue-btn{
+.continue-btn {
   margin-bottom: 24px;
   margin-top: 16px;
 }
 .continue-btn button {
   width: 100%;
   height: 100%;
-  background-color: #E31C5B;
+  background-color: #e31c5b;
   transition: opacity 1.25s;
   padding: 14px 24px;
   border: none;
@@ -1087,21 +1066,22 @@ input:focus {
   color: white;
   font-family: "Airbnb Cereal VF";
 }
-.icon-login{
+.icon-login {
   display: flex;
- justify-content: stretch;
-   align-items: center;
-   margin-bottom: 16px;
-   width: 100%;
+  justify-content: stretch;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 100%;
   padding: 13px 23px;
   border-radius: 10px;
   border: 1px solid black;
-   
 }
-.greeting-container{
+.greeting-container {
   padding: 32px;
 }
-.modal,.modal-global{
+.modal,
+.modal-global,
+.modal-filter {
   position: fixed;
   top: 0;
   left: 0;
@@ -1112,7 +1092,9 @@ input:focus {
   align-items: center;
   z-index: 99990;
 }
-.modal-overlay,.modal-global-overlay{
+.modal-overlay,
+.modal-global-overlay,
+.modal-filter-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -1121,7 +1103,7 @@ input:focus {
   background: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
-#country-select{
+#country-select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -1130,7 +1112,7 @@ input:focus {
   background-color: white;
   cursor: pointer;
 }
-.phone-box{
+.phone-box {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -1138,29 +1120,34 @@ input:focus {
   background-color: white;
   cursor: pointer;
 }
-.phone-box input{
+.phone-box input {
   border: none;
 }
-.greeting-container p, .privacy{
-  margin-top: 8px ;
-  color: #222222 ;
-  font-size: 0.75rem ;
-  line-height: 1rem ;
-  font-weight: 400 ;
+.greeting-container p,
+.privacy {
+  margin-top: 8px;
+  color: #222222;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
 }
-.lan-currency{
+.lan-currency {
+  overflow: auto;
   background-color: #fff;
-  border-radius: 8px;
-  width: 400px;
-  margin: 50px auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  border-radius: 32px;
+  width: 992px;
+  height: 646px;
+  max-width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .lan-currency-tabs {
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  background-color: #f7f7f7;
+  justify-content: flex-start;
   border-bottom: 1px solid #ddd;
 }
 .lan-currency-tabs button {
@@ -1176,19 +1163,166 @@ input:focus {
 .lan-currency-tabs button:hover {
   color: #007a91;
 }
-.languages-regions{
+.languages-regions {
   display: flex;
 }
- .translation{
+.translation img {
   width: 19px;
   height: 19px;
- }
- .lan-currency-header img{
+}
+.translation {
+  margin-top: 24px;
+  padding-bottom: 24px;
+}
+.lan-currency-header img {
   width: 16px;
   height: 16px;
- }
- .lan-currency-header {
+}
+.lan-currency-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 10px;
+}
+.currency-header {
+  font-size: 16px;
+  font-weight: 500;
+}
+.currency-container {
+  line-height: 20px;
+  margin-top: 24px;
+  padding-bottom: 24px;
+}
+.language-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  gap: 20px;
+}
+.language-item {
+  background-color: #f5f5f5;
+  padding: 9px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.language-name {
+  font-size: 14px;
+  margin: 0;
+}
+
+.language-region {
+  font-size: 14px;
+  color: #777;
+}
+.currencies-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  gap: 20px;
+}
+.currency-item {
+  background-color: #f5f5f5;
+  padding: 9px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+/* filter button */
+.filter-button {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #dddddd;
+  justify-content: center;
+}
+
+.filter-icon {
+  display: flex;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  gap: 10px;
+  padding: 14px 16px 14px 16px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-text {
+  font-size: 12px;
+}
+.filter-header img {
+  width: 16px;
+  height: 16px;
+}
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  align-items: center;
+  padding: 0 24px;
+  height: 64px;
+}
+.filter-container {
+  background-color: white;
+  width: 568px;
+  height: 650px;
+  border-radius: 32px;
+  font-family: "Airbnb Cereal VF";
+  overflow: auto;
+}
+.filter-container hr {
+  margin: 0;
+}
+.filter-section h1 {
+  font-size: 18px;
+  font-family: "Airbnb Cereal VF";
+  font-weight: 500;
+  padding-bottom: 16px;
+}
+.filter-section {
+  padding: 28px 24px;
+}
+.type-of-place {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+  border-radius: 16px;
+  border: 1px solid gray;
+  height: 45px;
+}
+.room-count {
+  display: grid;
+}
+.bed-room {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+}
+.essential-button img,
+.features-btn img {
+  width: 24px;
+  height: 24px;
+}
+.check {
+  display: flex;
+  flex-direction: column;
+}
+.check input,
+.check label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.check input {
+  margin-right: 10px;
+}
+.checkbox-wrapper {
+  display: flex;
+}
+.check input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
 }

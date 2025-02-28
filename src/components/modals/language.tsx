@@ -1,55 +1,54 @@
 import { useState } from "react";
 
-
 const Currencies = [
-  { label: "Pound sterling", code: "GBP", symbol: "£", value: "GBP" },
-  { label: "Australian dollar", code: "AUD", symbol: "$", value: "AUD" },
-  { label: "Brazilian real", code: "BRL", symbol: "R$", value: "BRL" },
-  { label: "Bulgarian lev", code: "BGN", symbol: "лв.", value: "BGN" },
-  { label: "Canadian dollar", code: "CAD", symbol: "$", value: "CAD" },
-  { label: "Chilean peso", code: "CLP", symbol: "$", value: "CLP" },
-  { label: "Chinese yuan", code: "CNY", symbol: "￥", value: "CNY" },
-  { label: "Colombian peso", code: "COP", symbol: "$", value: "COP" },
-  { label: "Costa Rican colon", code: "CRC", symbol: "₡", value: "CRC" },
-  { label: "Croatian kuna", code: "HRK", symbol: "kn", value: "HRK" },
-  { label: "Czech koruna", code: "CZK", symbol: "Kč", value: "CZK" },
-  { label: "Danish krone", code: "DKK", symbol: "kr", value: "DKK" },
-  { label: "Egyptian pound", code: "EGP", symbol: "ج.م", value: "EGP" },
-  { label: "Emirati dirham", code: "AED", symbol: "ﺩ.ﺇ", value: "AED" },
-  { label: "Euro", code: "EUR", symbol: "€", value: "EUR" },
-  { label: "Ghanaian cedi", code: "GHS", symbol: "GH₵", value: "GHS" },
-  { label: "Hong Kong dollar", code: "HKD", symbol: "$", value: "HKD" },
-  { label: "Hungarian forint", code: "HUF", symbol: "Ft", value: "HUF" },
-  { label: "Indian rupee", code: "INR", symbol: "₹", value: "INR" },
-  { label: "Indonesian rupiah", code: "IDR", symbol: "Rp", value: "IDR" },
-  { label: "Israeli new shekel", code: "ILS", symbol: "₪", value: "ILS" },
-  { label: "Japanese yen", code: "JPY", symbol: "¥", value: "JPY" },
-  { label: "Kazakhstani tenge", code: "KZT", symbol: "₸", value: "KZT" },
-  { label: "Kenyan shilling", code: "KES", symbol: "KSh", value: "KES" },
-  { label: "Malaysian ringgit", code: "MYR", symbol: "RM", value: "MYR" },
-  { label: "Mexican peso", code: "MXN", symbol: "$", value: "MXN" },
-  { label: "Moroccan dirham", code: "MAD", symbol: "", value: "MAD" },
-  { label: "New Taiwan dollar", code: "TWD", symbol: "$", value: "TWD" },
-  { label: "New Zealand dollar", code: "NZD", symbol: "$", value: "NZD" },
-  { label: "Norwegian krone", code: "NOK", symbol: "kr", value: "NOK" },
-  { label: "Peruvian sol", code: "PEN", symbol: "S/", value: "PEN" },
-  { label: "Philippine peso", code: "PHP", symbol: "₱", value: "PHP" },
-  { label: "Polish zloty", code: "PLN", symbol: "zł", value: "PLN" },
-  { label: "Qatari riyal", code: "QAR", symbol: "ر.ق", value: "QAR" },
-  { label: "Romanian leu", code: "RON", symbol: "lei", value: "RON" },
-  { label: "Saudi Arabian riyal", code: "SAR", symbol: "SR", value: "SAR" },
-  { label: "Singapore dollar", code: "SGD", symbol: "$", value: "SGD" },
-  { label: "South African rand", code: "ZAR", symbol: "R", value: "ZAR" },
-  { label: "South Korean won", code: "KRW", symbol: "₩", value: "KRW" },
-  { label: "Swedish krona", code: "SEK", symbol: "kr", value: "SEK" },
-  { label: "Swiss franc", code: "CHF", symbol: "", value: "CHF" },
-  { label: "Thai baht", code: "THB", symbol: "฿", value: "THB" },
-  { label: "Turkish lira", code: "TRY", symbol: "₺", value: "TRY" },
-  { label: "Ugandan shilling", code: "UGX", symbol: "USh", value: "UGX" },
-  { label: "Ukrainian hryvnia", code: "UAH", symbol: "₴", value: "UAH" },
-  { label: "United States dollar", code: "USD", symbol: "$", value: "USD" },
-  { label: "Uruguayan peso", code: "UYU", symbol: "$U", value: "UYU" },
-  { label: "Vietnamese dong", code: "VND", symbol: "₫", value: "VND" },
+  { label: "Pound sterling", code: "GBP-£", value: "GBP" },
+  { label: "Australian dollar", code: "AUD-$", value: "AUD" },
+  { label: "Brazilian real", code: "BRL-R$", value: "BRL" },
+  { label: "Bulgarian lev", code: "BGN-лв.", value: "BGN" },
+  { label: "Canadian dollar", code: "CAD-$", value: "CAD" },
+  { label: "Chilean peso", code: "CLP-$", value: "CLP" },
+  { label: "Chinese yuan", code: "CNY-￥", value: "CNY" },
+  { label: "Colombian peso", code: "COP-$", value: "COP" },
+  { label: "Costa Rican colon", code: "CRC-₡", value: "CRC" },
+  { label: "Croatian kuna", code: "HRK-kn", value: "HRK" },
+  { label: "Czech koruna", code: "CZK-Kč", value: "CZK" },
+  { label: "Danish krone", code: "DKK-kr", value: "DKK" },
+  { label: "Egyptian pound", code: "EGP-ج.م", value: "EGP" },
+  { label: "Emirati dirham", code: "AED-ﺩ.ﺇ", value: "AED" },
+  { label: "Euro", code: "EUR-€", value: "EUR" },
+  { label: "Ghanaian cedi", code: "GHS-GH₵", value: "GHS" },
+  { label: "Hong Kong dollar", code: "HKD-$", value: "HKD" },
+  { label: "Hungarian forint", code: "HUF-Ft", value: "HUF" },
+  { label: "Indian rupee", code: "INR-₹", value: "INR" },
+  { label: "Indonesian rupiah", code: "IDR-Rp", value: "IDR" },
+  { label: "Israeli new shekel", code: "ILS-₪", value: "ILS" },
+  { label: "Japanese yen", code: "JPY-¥", value: "JPY" },
+  { label: "Kazakhstani tenge", code: "KZT-₸", value: "KZT" },
+  { label: "Kenyan shilling", code: "KES-KSh", value: "KES" },
+  { label: "Malaysian ringgit", code: "MYR-RM", value: "MYR" },
+  { label: "Mexican peso", code: "MXN-$", value: "MXN" },
+  { label: "Moroccan dirham", code: "MAD-", value: "MAD" },
+  { label: "New Taiwan dollar", code: "TWD-$", value: "TWD" },
+  { label: "New Zealand dollar", code: "NZD-$", value: "NZD" },
+  { label: "Norwegian krone", code: "NOK-kr", value: "NOK" },
+  { label: "Peruvian sol", code: "PEN-S/", value: "PEN" },
+  { label: "Philippine peso", code: "PHP-₱", value: "PHP" },
+  { label: "Polish zloty", code: "PLN-zł", value: "PLN" },
+  { label: "Qatari riyal", code: "QAR-ر.ق", value: "QAR" },
+  { label: "Romanian leu", code: "RON-lei", value: "RON" },
+  { label: "Saudi Arabian riyal", code: "SAR-SR", value: "SAR" },
+  { label: "Singapore dollar", code: "SGD-$", value: "SGD" },
+  { label: "South African rand", code: "ZAR-R", value: "ZAR" },
+  { label: "South Korean won", code: "KRW-₩", value: "KRW" },
+  { label: "Swedish krona", code: "SEK-kr", value: "SEK" },
+  { label: "Swiss franc", code: "CHF-", value: "CHF" },
+  { label: "Thai baht", code: "THB-฿", value: "THB" },
+  { label: "Turkish lira", code: "TRY-₺", value: "TRY" },
+  { label: "Ugandan shilling", code: "UGX-USh", value: "UGX" },
+  { label: "Ukrainian hryvnia", code: "UAH-₴", value: "UAH" },
+  { label: "United States dollar", code: "USD-$", value: "USD" },
+  { label: "Uruguayan peso", code: "UYU-$U", value: "UYU" },
+  { label: "Vietnamese dong", code: "VND-₫", value: "VND" },
 ];
 const LanRegion = [
   { label: "English", region: "United States", value: "English_United States" },
@@ -97,62 +96,81 @@ const LanRegion = [
 ];
 
 function Language({ closeGlobal }: { closeGlobal: () => void }) {
-  const [activeTab, setActiveTab] = useState('language');
+  const [activeTab, setActiveTab] = useState("language");
   return (
-    
     <div className="lan-currency">
-        <div className="lan-currency-header">
-      <img src="src/assets/icon/close.svg" alt="Close" onClick={closeGlobal} />
-    </div>
-    <div className="lan-currency-tabs">
-      <button onClick={() => setActiveTab('language')}>Language and region</button>
-      <button onClick={() => setActiveTab('currency')}>Currency</button>
-    </div>
-  
-    <div className="lan-currency-contents">
-      {activeTab === 'currency' && (
-        <div className="currency-container">
-          <div className="currency-header">Choose a currency</div>
-          <div className="currencies">
-  {Currencies.map((currency) => (
-    <div key={currency.value} className="currency-item">
-      <span className="currency-name">{currency.label}</span>
-      <span className="currency-symbol">{currency.symbol}</span>
-    </div>
-  ))}
-</div>
-          </div>
-      )}
-      {activeTab === 'language' && (
-        <div className="language-container">
-          <hr />
-          <div className="translation">
-            <h1>
-              Translation
-              <span>
-                <img src="src/assets/icon/translation.svg" alt="Translation" />
-              </span>
-              <p>Automatically translate descriptions and reviews to English.</p>
-              <div>
-                <button role="switch"></button>
-              </div>
-            </h1>
-          </div>
-          <div className="select-language">Suggested language and region</div>
-          <div className="select-language">Choose a language and region</div>
-          <div className="languages-regions">
-  {LanRegion.map((lan) => (
-    <div key={lan.value} className="language-item">
-      <span className="language-name">{lan.label}</span>
-      <span className="language-region">{lan.region}</span>
-    </div>
-  ))}
-</div>
-        </div>
-      )}
-    </div>
-  </div>
-);
+      <div className="lan-currency-header">
+        <img
+          src="src/assets/icon/close.svg"
+          alt="Close"
+          onClick={closeGlobal}
+        />
+      </div>
 
+      <div className="lan-currency-tabs">
+        <button onClick={() => setActiveTab("language")}>
+          Language and region
+        </button>
+        <button onClick={() => setActiveTab("currency")}>Currency</button>
+      </div>
+
+      <div className="currency-contents">
+        {activeTab === "currency" && (
+          <div className="currency-container">
+            <div className="currency-header">Choose a currency</div>
+            <ul className="currencies-wrapper">
+              {Currencies.map((currency) => (
+                <li key={currency.value} className="currency-item">
+                  <p className="currency-name">{currency.label}</p>
+                  <span className="currency-symbol">{currency.code}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      <div className="lan-contents">
+        {activeTab === "language" && (
+          <div className="language-container">
+            <div className="laguage-header">
+              <div className="translation">
+                Translation
+                <span>
+                  <img
+                    src="src/assets/icon/translation.svg"
+                    alt="Translation"
+                  />
+                </span>
+                <p>
+                  Automatically translate descriptions and reviews to English.
+                </p>
+              </div>
+              <div className="language-section">
+                <div className="select-language">
+                  Suggested language and region
+                </div>
+                <div className="language-item">
+                  <p className="language-name">English</p>
+                  <span className="language-region">United States</span>
+                </div>
+                <div className="select-language">
+                  Choose a language and region
+                </div>
+              </div>
+            </div>
+
+            <ul className="language-wrapper">
+              {LanRegion.map((lan) => (
+                <li key={lan.value} className="language-item">
+                  <p className="language-name">{lan.label}</p>
+                  <span className="language-region">{lan.region}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 export default Language;

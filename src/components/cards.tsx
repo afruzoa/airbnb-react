@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import Filter from "./modals/filter";
 
 const Cards = () => {
   const [icons, setIcons] = useState<any[]>();
   const [rooms, setRooms] = useState<any[]>();
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedIcon, setSelectedIcon] = useState<number | null>(null);
   const iconsRef = useRef<HTMLDivElement | null>(null);
   const getCategories = () => {
@@ -48,23 +50,13 @@ const Cards = () => {
       getCategoryRooms(selectedIcon);
     }
   }, [selectedIcon]);
+  const openFilter = () => {
+    setIsFilterOpen(true);
+  };
+  const closeFilter = () => {
+    setIsFilterOpen(false);
+  };
 
-  // prevBtn.addEventListener("click", () => {
-  //   iconSection.scrollBy({
-  //     left: -iconSection.clientWidth,
-  //     behavior: "smooth",
-  //   });
-  // });
-
-  // nextBtn.addEventListener("click", () => {
-  //   iconSection.scrollBy({
-  //     left: iconSection.clientWidth,
-  //     behavior: "smooth",
-  //   });
-  // });
-
-  // iconSection.addEventListener("scroll", updateButtonVisibility);
-  // updateButtonVisibility();
   return (
     <div>
       {" "}
@@ -73,7 +65,6 @@ const Cards = () => {
           <div
             className="prev-next-btn"
             onClick={() => {
-              // console.log({ "????????????????": e.currentTarget.clientWidth });
               iconsRef?.current?.scrollBy({
                 left: -iconsRef?.current?.clientWidth,
                 behavior: "smooth",
@@ -114,7 +105,26 @@ const Cards = () => {
             <img src="src/assets/icon/next.svg" alt="" className="next-img" />
           </div>
         </div>
+        <div className="filter-button" onClick={openFilter}>
+          <div className="filter-icon">
+            <img
+              src="src/assets/icon/filter.svg"
+              alt=""
+              width="16"
+              height="16"
+            />
+            <span className="filter-text">Filters</span>
+          </div>
+        </div>
       </div>
+      {isFilterOpen && (
+        <div className="modal-filter">
+          <div className="modal-filter-content">
+            <Filter closeFilter={closeFilter} />
+          </div>
+          <div className="modal-filter-overlay" onClick={closeFilter}></div>
+        </div>
+      )}
       {/* // <!--center section  --> */}
       <div className="main-container">
         <div className="main">

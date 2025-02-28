@@ -10,37 +10,40 @@ import Language from "./modals/language";
 function Header() {
   const [activeTab, setActiveTab] = useState<"Stays" | "Experiences">("Stays");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isModalOpen,setIsModalOpen] = useState(false)
-  const[isGlobalOpen,setIsGlobalOpen] = useState(false)
-   const profileRef = useRef<HTMLButtonElement | null>(null);
-   const openModal = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isGlobalOpen, setIsGlobalOpen] = useState(false);
+  const profileRef = useRef<HTMLButtonElement | null>(null);
+  const openModal = () => {
     setIsModalOpen(true);
-};
-const closeModal = () => {
+  };
+  const closeModal = () => {
     setIsModalOpen(false);
-};
-const openGlobal = () => {
-  setIsGlobalOpen(true);
-};
-const closeGlobal = () => {
-  setIsGlobalOpen(false);
-};
-    const handleClickOutside = (event: MouseEvent) => {
-      if (profileRef.current && !profileRef.current.contains(event?.target as Node)) {
-        setIsDropdownOpen(false);
-      }
+  };
+  const openGlobal = () => {
+    setIsGlobalOpen(true);
+  };
+  const closeGlobal = () => {
+    setIsGlobalOpen(false);
+  };
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      profileRef.current &&
+      !profileRef.current.contains(event?.target as Node)
+    ) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
     };
-  
-    useEffect(() => {
-      if (isDropdownOpen) {
-        document.addEventListener('click', handleClickOutside);
-      }
-  
-      return () => {
-        document.removeEventListener('click', handleClickOutside);
-      };
-    }, [isDropdownOpen]);
-    console.log(isDropdownOpen)
+  }, [isDropdownOpen]);
+  console.log(isDropdownOpen);
 
   return (
     <div>
@@ -51,13 +54,17 @@ const closeGlobal = () => {
 
         <div className="header-center">
           <button
-            className={`stay ${activeTab === "Stays" ? "header-tab-active" : ""}`}
+            className={`stay ${
+              activeTab === "Stays" ? "header-tab-active" : ""
+            }`}
             onClick={() => setActiveTab("Stays")}
           >
             Stays
           </button>
           <button
-            className={`exp ${activeTab === "Experiences" ? "header-tab-active" : ""}`}
+            className={`exp ${
+              activeTab === "Experiences" ? "header-tab-active" : ""
+            }`}
             onClick={() => setActiveTab("Experiences")}
           >
             Experiences
@@ -74,18 +81,18 @@ const closeGlobal = () => {
             </a>
           </div>
           {isGlobalOpen && (
-        <div className="modal-global">
-          <div className="modal-global-content">
-            <Language closeGlobal={closeGlobal} /> 
+            <div className="modal-global">
+              <div className="modal-global-content">
+                <Language closeGlobal={closeGlobal} />
+              </div>
+              <div className="modal-global-overlay" onClick={closeGlobal}></div>
             </div>
-            <div className="modal-global-overlay" onClick={closeGlobal}></div> 
-        </div>
-      )}
+          )}
 
-          <div className="menu" >
+          <div className="menu">
             <button
               className="hamburger-menu"
-              onClick={() => setIsDropdownOpen((prev) => !prev) }
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
               ref={profileRef}
             >
               <img className="menu-img" src={menu} alt="Menu icon" />
@@ -112,9 +119,9 @@ const closeGlobal = () => {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <Signup closeModal={closeModal} /> 
+            <Signup closeModal={closeModal} />
           </div>
-          <div className="modal-overlay" onClick={closeModal}></div> 
+          <div className="modal-overlay" onClick={closeModal}></div>
         </div>
       )}
     </div>

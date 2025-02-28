@@ -9,8 +9,10 @@ function Who({ setGuestInput }: WhoProps) {
   const [infantCount, setInfantCount] = useState(0);
   const [petCount, setPetCount] = useState(0);
   useEffect(() => {
-    let guestSummary = `${adultCount + childCount} Guest${adultCount + childCount !== 1 ? "s" : ""}`;
-    
+    let guestSummary = `${adultCount + childCount} Guest${
+      adultCount + childCount !== 1 ? "s" : ""
+    }`;
+
     if (infantCount > 0) {
       guestSummary += `, ${infantCount} Infant${infantCount !== 1 ? "s" : ""}`;
     }
@@ -26,7 +28,6 @@ function Who({ setGuestInput }: WhoProps) {
       type === "increase" ? prevCount + 1 : Math.max(0, prevCount - 1)
     );
   };
-
 
   const handleChildCountChange = (type: string) => {
     setChildCount((prevCount) =>
