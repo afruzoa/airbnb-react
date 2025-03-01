@@ -1,3 +1,5 @@
+import PriceRange from "./pricerange";
+
 const Essentials = [
   { name: "Wifi", icon: <img src="src/assets/icon/filter/wifi.svg" /> },
   { name: "Kitchen", icon: <img src="src/assets/icon/filter/kitchen.svg" /> },
@@ -122,15 +124,7 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
           <h1>Price range</h1>
           <p>Total prices for 5 nights including fees and taxes</p>
           <div>
-            <label
-              id="price_filter_min"
-              htmlFor="price_filter_min"
-              className=""
-            >
-              Minimum
-            </label>
-            <span>€</span>
-            <input type="number" value="€9" />
+            <PriceRange/>
           </div>
         </div>
         <hr />

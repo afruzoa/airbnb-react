@@ -19,6 +19,7 @@
     "react": "^19.0.0",
     "react-dates": "^21.8.0",
     "react-dom": "^19.0.0",
+    "react-slider": "^2.0.6",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
     "vite-express": "^0.20.0"

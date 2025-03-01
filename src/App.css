@@ -1386,3 +1386,30 @@ input:focus {
   font-family: "Airbnb Cereal VF";
   
 }
+
+
+.horizontal-slider {
+  width: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.track {
+  background: gray;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;  /* قرار دادن track دقیقا وسط */
+  transform: translateY(-50%);
+}
+
+.thumb {
+  background: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;  /* قرار دادن thumb دقیقا وسط */
+  transform: translateY(-50%);  /* دقیقا وسط قرار می‌گیره */
+  border: 2px solid #fff;  /* مرز سفید برای thumb */
+}
