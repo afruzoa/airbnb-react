@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PriceRange from "./pricerange";
 
 const Essentials = [
@@ -98,6 +99,9 @@ const Host = [
   { text: "Sign Language", id: "33" },
 ];
 function Filter({ closeFilter }: { closeFilter: () => void }) {
+  const [openPropertyType, setOpenPropertyType] = useState(false);
+  const [openAccessibility, setOpenAccessibility] = useState(false);
+  const [openHostLanguage, setOpenHostLanguage] = useState(false);
   return (
     <div className="filter-container">
       <div className="filter-header">
@@ -239,7 +243,7 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
 
         <div className="filter-section">
           <div className="property">
-            <h1>Property type</h1>
+            <h1 onClick={() => setOpenPropertyType(!openPropertyType)}>Property type</h1>
             <button>
               <img src="src/assets/icon/filter/house.jpg" alt="" />
               <span>House</span>
@@ -257,7 +261,7 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
 
         <div className="filter-section">
           <div className="access">
-            <h1>Accessibility features</h1>
+            <h1 onClick={() => setOpenAccessibility(!openAccessibility)}>Accessibility features</h1>
             <div className="entrance">
               <h1>Guest entrance and parking</h1>
               <div className="check">
@@ -311,7 +315,7 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
         </div>
         <div className="filter-section">
           <div className="host">
-            <h1>Host language</h1>
+            <h1 onClick={() => setOpenHostLanguage(!openHostLanguage)}>Host language</h1>
             <div className="check">
               {Host.map((item) => (
                 <div key={item.id} className="checkbox-wrapper">
