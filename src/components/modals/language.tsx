@@ -145,20 +145,22 @@ function Language({ closeGlobal }: { closeGlobal: () => void }) {
                   Automatically translate descriptions and reviews to English.
                 </p>
               </div>
-              <div className="language-section">
-                <div className="select-language">
-                  Suggested language and region
-                </div>
-                <div className="language-item">
-                  <p className="language-name">English</p>
-                  <span className="language-region">United States</span>
-                </div>
-                <div className="select-language">
-                  Choose a language and region
-                </div>
+            </div>
+            <div className="language-section">
+            <div className="selected">
+            <div className="select-language">
+                Suggested language and region
+              </div>
+              <div className="language-item">
+                <p className="language-name">English</p>
+                <span className="language-region">United States</span>
               </div>
             </div>
-
+              <div className="choosed">
+              <div className="select-language">
+                Choose a language and region
+              </div>
+            </div>
             <ul className="language-wrapper">
               {LanRegion.map((lan) => (
                 <li key={lan.value} className="language-item">
@@ -167,6 +169,7 @@ function Language({ closeGlobal }: { closeGlobal: () => void }) {
                 </li>
               ))}
             </ul>
+              </div>
           </div>
         )}
       </div>

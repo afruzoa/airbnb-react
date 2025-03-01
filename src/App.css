@@ -26,7 +26,8 @@ main {
 .stay,
 .logo-name,
 .plus-button,
-.minus-button {
+.minus-button,
+.language-item,.currency-item {
   cursor: pointer;
 }
 /* header section */
@@ -1166,13 +1167,32 @@ input:focus {
 .languages-regions {
   display: flex;
 }
+.language-container{
+  padding: 0 24px;
+}
 .translation img {
   width: 19px;
   height: 19px;
 }
 .translation {
+  padding: 16px;
+  margin-top: 24px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 8px;
+}
+.translation p{
+  color: rgb(106, 106, 106);
+  line-height: 1.25rem;
+  font-size: 0.875rem;
+}
+.choosed{
+  padding-bottom: 24px;
+  margin-top: 24px;
+}
+.laguage-header{
   margin-top: 24px;
   padding-bottom: 24px;
+  width: 50%;
 }
 .lan-currency-header img {
   width: 16px;
@@ -1184,7 +1204,7 @@ input:focus {
   padding: 10px;
 }
 .currency-header {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
 }
 .currency-container {
@@ -1197,20 +1217,31 @@ input:focus {
   grid-template-columns: repeat(4, 1fr);
   list-style: none;
   gap: 20px;
+  padding: 0;
 }
-.language-item {
-  background-color: #f5f5f5;
+.select-language{
+  font-size: 22px;
+  font-weight: 500;
+}
+.selected{
+  margin-top: 24px;
+  padding-bottom: 24px;
+}
+.language-item,.currency-item {
   padding: 9px 12px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 1px solid transparent;
 }
-.language-name {
+.language-item:hover,.currency-item:hover{
+  background-color: #F7F7F7;
+}
+.language-name,.currency-name {
   font-size: 14px;
   margin: 0;
 }
 
-.language-region {
+.language-region , .currency-symbol{
   font-size: 14px;
   color: #777;
 }
@@ -1219,14 +1250,9 @@ input:focus {
   grid-template-columns: repeat(5, 1fr);
   list-style: none;
   gap: 20px;
+  padding: 0;
 }
-.currency-item {
-  background-color: #f5f5f5;
-  padding: 9px 12px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
+
 /* filter button */
 .filter-button {
   display: flex;
@@ -1325,4 +1351,38 @@ input:focus {
 .check input[type="checkbox"] {
   width: 25px;
   height: 25px;
+}
+.map{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+ 
+  position: fixed;
+  left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    bottom: 40px;
+}
+.map-img{
+  width: 16px;
+  height: 16px;
+  filter: invert(1);
+}
+.map button {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  background: rgb(34, 34, 34); 
+  padding: 10px 15px;
+  border-radius: 24px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 14px 19px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  font-family: "Airbnb Cereal VF";
+  
 }

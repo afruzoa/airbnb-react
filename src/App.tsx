@@ -3,6 +3,7 @@ import "/src/App.css";
 import Footer from "./components/footersection/footer";
 import Inspiration from "./components/footersection/inspiration";
 import Cards from "./components/cards";
+import Map from "./components/modals/map";
 const App = () => {
   return (
  <>  
@@ -12,6 +13,7 @@ const App = () => {
  <Inspiration/>
  </main>
  <Footer/>
+ <Map/>
  </>
   );
 };
