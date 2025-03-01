@@ -1328,9 +1328,48 @@ input:focus {
   padding-bottom: 12px;
 }
 .essential-button img,
-.features-btn img {
+.features-btn img,.booking button img,.safety button img,.property button img {
   width: 24px;
   height: 24px;
+
+}
+.favourite button img{
+  width: 32px;
+  height: 32px;
+}
+.essential-button,
+.features-btn ,.booking button,.safety button,.property button{
+ display: inline-flex;
+  padding: 12px 18px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 32px;
+  border: 1px solid #dddddd;
+  gap: 10px;
+  background-color: white;
+  margin-right: 8px;
+  margin-bottom: 12px;
+
+}
+.favourite button{
+  display: inline-flex;
+  padding: 12px 18px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 32px;
+  border: 1px solid #dddddd;
+  gap: 10px;
+  background-color: white;
+  text-align: left;
+  
+}
+.favourite-text{
+  display: flex;
+  flex-direction: column;
 }
 .check {
   display: flex;
@@ -1399,7 +1438,7 @@ input:focus {
   height: 5px;
   border-radius: 5px;
   position: absolute;
-  top: 50%;  /* قرار دادن track دقیقا وسط */
+  top: 50%;  
   transform: translateY(-50%);
 }
 
@@ -1409,7 +1448,7 @@ input:focus {
   height: 20px;
   border-radius: 50%;
   position: absolute;
-  top: 50%;  /* قرار دادن thumb دقیقا وسط */
-  transform: translateY(-50%);  /* دقیقا وسط قرار می‌گیره */
-  border: 2px solid #fff;  /* مرز سفید برای thumb */
+  top: 50%;  
+  transform: translateY(-50%); 
+  border: 2px solid #fff;  
 }

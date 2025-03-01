@@ -225,7 +225,16 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
         </div>
 
         <div className="filter-section">
-          <h1>Standout stays</h1>
+          <div className="favourite">
+             <h1>Standout stays</h1>
+             <button>
+              <img src="src/assets/icon/filter/favourite.svg" alt="" />
+              <div className="favourite-text">
+                <p>Guest favourite</p>
+              <span>The most loved homes on Airbnb</span></div>
+             </button>
+          </div>
+         
         </div>
 
         <div className="filter-section">
