@@ -27,7 +27,8 @@ main {
 .logo-name,
 .plus-button,
 .minus-button,
-.language-item,.currency-item {
+.language-item,
+.currency-item {
   cursor: pointer;
 }
 /* header section */
@@ -1080,30 +1081,6 @@ input:focus {
 .greeting-container {
   padding: 32px;
 }
-.modal,
-.modal-global,
-.modal-filter {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99990;
-}
-.modal-overlay,
-.modal-global-overlay,
-.modal-filter-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
 #country-select {
   width: 100%;
   padding: 10px;
@@ -1132,6 +1109,33 @@ input:focus {
   line-height: 1rem;
   font-weight: 400;
 }
+/* modals */
+.modal,
+.modal-global,
+.modal-filter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99990;
+}
+.modal-overlay,
+.modal-global-overlay,
+.modal-filter-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* language modal */
 .lan-currency {
   overflow: auto;
   background-color: #fff;
@@ -1167,7 +1171,7 @@ input:focus {
 .languages-regions {
   display: flex;
 }
-.language-container{
+.language-container {
   padding: 0 24px;
 }
 .translation img {
@@ -1180,16 +1184,16 @@ input:focus {
   background-color: rgb(247, 247, 247);
   border-radius: 8px;
 }
-.translation p{
+.translation p {
   color: rgb(106, 106, 106);
   line-height: 1.25rem;
   font-size: 0.875rem;
 }
-.choosed{
+.choosed {
   padding-bottom: 24px;
   margin-top: 24px;
 }
-.laguage-header{
+.laguage-header {
   margin-top: 24px;
   padding-bottom: 24px;
   width: 50%;
@@ -1219,29 +1223,33 @@ input:focus {
   gap: 20px;
   padding: 0;
 }
-.select-language{
+.select-language {
   font-size: 22px;
   font-weight: 500;
 }
-.selected{
+.selected {
   margin-top: 24px;
   padding-bottom: 24px;
 }
-.language-item,.currency-item {
+.language-item,
+.currency-item {
   padding: 9px 12px;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   border: 1px solid transparent;
 }
-.language-item:hover,.currency-item:hover{
-  background-color: #F7F7F7;
+.language-item:hover,
+.currency-item:hover {
+  background-color: #f7f7f7;
 }
-.language-name,.currency-name {
+.language-name,
+.currency-name {
   font-size: 14px;
   margin: 0;
 }
 
-.language-region , .currency-symbol{
+.language-region,
+.currency-symbol {
   font-size: 14px;
   color: #777;
 }
@@ -1281,6 +1289,7 @@ input:focus {
   width: 16px;
   height: 16px;
 }
+/* filter modal */
 .filter-header {
   display: flex;
   justify-content: space-between;
@@ -1288,6 +1297,11 @@ input:focus {
   align-items: center;
   padding: 0 24px;
   height: 64px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border-bottom: 1px solid #eeeeee;
+  z-index: 1;
 }
 .filter-container {
   background-color: white;
@@ -1311,12 +1325,49 @@ input:focus {
 }
 .type-of-place {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding: 4px;
   border-radius: 16px;
-  border: 1px solid gray;
+  border: 1px solid #dddddd;
   height: 45px;
+}
+.any-home,
+.any-type,
+.any-room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 153px;
+  height: 45px;
+}
+.any-home:hover,
+.any-type:hover,
+.any-room:hover {
+  background-color: #f7f7f7;
+  border-radius: 12px 0 0 12px;
+}
+.filter-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -2px 16px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  padding: 16px 24px;
+  height: 48px;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  border-bottom: 1px solid #eeeeee;
+  z-index: 1;
+}
+.filter-footer button {
+  background-color: #222222;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 8px;
+}
+.filter-footer button:hover {
+  background-color: black;
 }
 .room-count {
   display: grid;
@@ -1328,18 +1379,25 @@ input:focus {
   padding-bottom: 12px;
 }
 .essential-button img,
-.features-btn img,.booking button img,.safety button img,.property button img {
+.features-btn img,
+.booking button img,
+.safety button img,
+.property button img,
+.location button img {
   width: 24px;
   height: 24px;
-
 }
-.favourite button img{
+.favourite button img {
   width: 32px;
   height: 32px;
 }
 .essential-button,
-.features-btn ,.booking button,.safety button,.property button{
- display: inline-flex;
+.features-btn,
+.booking button,
+.safety button,
+.property button,
+.location button {
+  display: inline-flex;
   padding: 12px 18px;
   align-items: center;
   justify-content: center;
@@ -1351,9 +1409,8 @@ input:focus {
   background-color: white;
   margin-right: 8px;
   margin-bottom: 12px;
-
 }
-.favourite button{
+.favourite button {
   display: inline-flex;
   padding: 12px 18px;
   align-items: center;
@@ -1365,9 +1422,8 @@ input:focus {
   gap: 10px;
   background-color: white;
   text-align: left;
-  
 }
-.favourite-text{
+.favourite-text {
   display: flex;
   flex-direction: column;
 }
@@ -1391,18 +1447,33 @@ input:focus {
   width: 25px;
   height: 25px;
 }
-.map{
+
+.host img,
+.access-header img,
+.property-header img {
+  height: 16px;
+  height: 16px;
+}
+.hoset-header,
+.property-header,
+.access-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* show map */
+.map {
   display: inline-flex;
   justify-content: center;
   align-items: center;
- 
+
   position: fixed;
   left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    bottom: 40px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  bottom: 40px;
 }
-.map-img{
+.map-img {
   width: 16px;
   height: 16px;
   filter: invert(1);
@@ -1410,8 +1481,8 @@ input:focus {
 .map button {
   display: flex;
   align-items: center;
-  gap: 8px; 
-  background: rgb(34, 34, 34); 
+  gap: 8px;
+  background: rgb(34, 34, 34);
   padding: 10px 15px;
   border-radius: 24px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -1423,10 +1494,15 @@ input:focus {
   font-weight: 500;
   line-height: 18px;
   font-family: "Airbnb Cereal VF";
-  
+}
+.filter-section p {
+  font-weight: 400;
+  font-size: 14px;
+  padding-top: 8px;
+  margin: 0;
 }
 
-
+/* price range */
 .horizontal-slider {
   width: 300px;
   margin: 20px auto;
@@ -1434,21 +1510,55 @@ input:focus {
 }
 
 .track {
-  background: gray;
+  background: #e31c5f;
   height: 5px;
   border-radius: 5px;
   position: absolute;
-  top: 50%;  
+  top: 50%;
   transform: translateY(-50%);
 }
 
 .thumb {
-  background: black;
+  background: gray;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   position: absolute;
-  top: 50%;  
-  transform: translateY(-50%); 
-  border: 2px solid #fff;  
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid #fff;
+}
+
+.range-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.range-btn div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #797979;
+  font-weight: 500;
+  margin-top: 40px;
+}
+
+.range-btn button {
+  border-radius: 50px;
+  padding: 15px;
+  border: 1px solid #dedede;
+  background-color: white;
+  min-width: 80px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Airbnb Cereal VF";
+}
+
+.price {
+  margin: 0;
+  padding-bottom: 0 !important;
 }

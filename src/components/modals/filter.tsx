@@ -118,17 +118,17 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
         <div className="filter-section">
           <h1>Type of place</h1>
           <div className="type-of-place">
-            <div>Any type</div>
-            <div>Room</div>
-            <div>Entire home</div>
+            <div className="any-type">Any type</div>
+            <div className="any-room">Room</div>
+            <div className="any-home">Entire home</div>
           </div>
         </div>
         <hr />
         <div className="filter-section">
-          <h1>Price range</h1>
+          <h1 className="price">Price range</h1>
           <p>Total prices for 5 nights including fees and taxes</p>
           <div>
-            <PriceRange/>
+            <PriceRange />
           </div>
         </div>
         <hr />
@@ -196,6 +196,13 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
                 </button>
               ))}
             </div>
+            <div className="location">
+              <h2>Location</h2>
+              <button>
+                <img src="src/assets/icon/filter/water.svg" alt="" />
+                <span>Waterfront</span>
+              </button>
+            </div>
             <div className="safety">
               <h2>Safety</h2>
               <button>
@@ -227,103 +234,147 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
             </button>
           </div>
         </div>
-
+        <hr />
         <div className="filter-section">
           <div className="favourite">
-             <h1>Standout stays</h1>
-             <button>
+            <h1>Standout stays</h1>
+            <button>
               <img src="src/assets/icon/filter/favourite.svg" alt="" />
               <div className="favourite-text">
                 <p>Guest favourite</p>
-              <span>The most loved homes on Airbnb</span></div>
-             </button>
+                <span>The most loved homes on Airbnb</span>
+              </div>
+            </button>
           </div>
-         
         </div>
-
+        <hr />
         <div className="filter-section">
           <div className="property">
-            <h1 onClick={() => setOpenPropertyType(!openPropertyType)}>Property type</h1>
-            <button>
-              <img src="src/assets/icon/filter/house.jpg" alt="" />
-              <span>House</span>
-            </button>
-            <button>
-              <img src="src/assets/icon/filter/guest.jpg" alt="" />
-              <span>Guest house</span>
-            </button>
-            <button>
-              <img src="src/assets/icon/filter/hotel.jpg" alt="" />
-              <span>Hotel</span>
-            </button>
+            <div
+              className="property-header"
+              onClick={() => setOpenPropertyType(!openPropertyType)}
+              aria-expanded={openPropertyType}
+            >
+              <h1>Property type</h1>
+              <img src="src/assets/icon/filter/acardion-d.svg" alt="" />
+            </div>
+
+            {openPropertyType && (
+              <div className="property-btn">
+                <button>
+                  <img src="src/assets/icon/filter/house.jpg" alt="" />
+                  <span>House</span>
+                </button>
+                <button>
+                  <img src="src/assets/icon/filter/flat.jpg" alt="" />
+                  <span>Flat</span>
+                </button>
+                <button>
+                  <img src="src/assets/icon/filter/guest.jpg" alt="" />
+                  <span>Guest house</span>
+                </button>
+                <button>
+                  <img src="src/assets/icon/filter/hotel.jpg" alt="" />
+                  <span>Hotel</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
+        <hr />
 
         <div className="filter-section">
           <div className="access">
-            <h1 onClick={() => setOpenAccessibility(!openAccessibility)}>Accessibility features</h1>
-            <div className="entrance">
-              <h1>Guest entrance and parking</h1>
-              <div className="check">
-                {Guest.map((item) => (
-                  <div key={item.id} className="checkbox-wrapper">
-                    <input type="checkbox" id={item.id} name={item.text} />
-                    <label htmlFor={item.id}>{item.text}</label>
+            <div
+              className="access-header"
+              onClick={() => setOpenAccessibility(!openAccessibility)}
+            >
+              <h1>Accessibility features</h1>
+              <img src="src/assets/icon/filter/acardion-d.svg" alt="" />
+            </div>
+            {openAccessibility && (
+              <div className="access-content">
+                <div className="entrance">
+                  <h1>Guest entrance and parking</h1>
+                  <div className="check">
+                    {Guest.map((item) => (
+                      <div key={item.id} className="checkbox-wrapper">
+                        <input type="checkbox" id={item.id} name={item.text} />
+                        <label htmlFor={item.id}>{item.text}</label>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="bed-acces">
-              <h1>Bedroom</h1>
-              <div className="check">
-                <div className="checkbox-wrapper">
-                  <input type="checkbox" />
-                  <label>Step-free bedroom access</label>
                 </div>
-                <div className="checkbox-wrapper">
-                  {" "}
-                  <input type="checkbox" />
-                  <label>
-                    Bedroom entrance wider than 32 inches (81 centimetres)
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div className="bath-access">
-              <h1>Bathroom</h1>
-              <div className="check">
-                {Bathroom.map((item) => (
-                  <div key={item.id} className="checkbox-wrapper">
-                    <input type="checkbox" id={item.id} name={item.text} />
-                    <label htmlFor={item.id}>{item.text}</label>
+                <div className="bed-acces">
+                  <h1>Bedroom</h1>
+                  <div className="check">
+                    <div className="checkbox-wrapper">
+                      <input type="checkbox" />
+                      <label>Step-free bedroom access</label>
+                    </div>
+                    <div className="checkbox-wrapper">
+                      {" "}
+                      <input type="checkbox" />
+                      <label>
+                        Bedroom entrance wider than 32 inches (81 centimetres)
+                      </label>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="adaptive">
-              <h1>Adaptive equipment</h1>
+                </div>
+                <div className="bath-access">
+                  <h1>Bathroom</h1>
+                  <div className="check">
+                    {Bathroom.map((item) => (
+                      <div key={item.id} className="checkbox-wrapper">
+                        <input type="checkbox" id={item.id} name={item.text} />
+                        <label htmlFor={item.id}>{item.text}</label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="adaptive">
+                  <h1>Adaptive equipment</h1>
 
-              <div className="check">
-                <div className="checkbox-wrapper">
-                  {" "}
-                  <input type="checkbox" />
-                  <label>Ceiling or mobile hoist</label>
+                  <div className="check">
+                    <div className="checkbox-wrapper">
+                      {" "}
+                      <input type="checkbox" />
+                      <label>Ceiling or mobile host</label>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
+        <hr />
         <div className="filter-section">
           <div className="host">
-            <h1 onClick={() => setOpenHostLanguage(!openHostLanguage)}>Host language</h1>
-            <div className="check">
-              {Host.map((item) => (
-                <div key={item.id} className="checkbox-wrapper">
-                  <input type="checkbox" id={item.id} name={item.text} />
-                  <label htmlFor={item.id}>{item.text}</label>
-                </div>
-              ))}
+            <div
+              className="hoset-header"
+              onClick={() => setOpenHostLanguage((prev) => !prev)}
+              aria-expanded={openHostLanguage}
+            >
+              <h1>Host language</h1>
+              <img src="src/assets/icon/filter/acardion-d.svg" alt="" />
             </div>
+
+            {openHostLanguage && (
+              <div className="check">
+                {Host.map((item) => (
+                  <div key={item.id} className="checkbox-wrapper">
+                    <input type="checkbox" id={item.id} name={item.text} />
+                    <label htmlFor={item.id}>{item.text}</label>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="filter-footer">
+          <div className="filter-footer-l">Clear all</div>
+          <div className="filter-footer-r">
+            <button>Show 970 places</button>
           </div>
         </div>
       </div>
