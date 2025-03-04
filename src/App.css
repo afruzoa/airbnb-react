@@ -589,25 +589,38 @@ input:focus {
   background-color: #dddddd;
 }
 .micro-date {
-  width: 12px;
-  height: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid;
+  padding: 4px 14px;
+  border-radius: 20px;
 }
 .micro-flex {
   padding: 8px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  width: 64%;
   font-size: 12px;
 }
 .micro-date span,
 .exact-date {
   white-space: nowrap;
+}
+.micro-flex img{
+  width: 12px;
+  height: 12px;
+}
+
+
+
+/* flex */
+
+.month-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 }
 
 /* datepicker */

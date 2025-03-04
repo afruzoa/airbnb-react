@@ -4,8 +4,6 @@ import Who from "./whosection/who";
 import DatePicker from "./checkin/checkin";
 
 function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
-  console.log({ activeTab });
-  // const [whereSectionIsOpen, setWhereSectionIsOpen] = useState<boolean>(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("");
   const [openSection, setOpenSection] = useState("");
   const [guestInput, setGuestInput] = useState<string>("");
@@ -14,16 +12,11 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
     setSelectedRegion(region);
     setOpenSection("");
   };
-  console.log({ openSection });
-  // const handleGuestInputChange = (input: string) => {
-  //   setGuestInput(input);
-  //   setOpenSection("");
-  // };
   const whereRef = useRef<HTMLDivElement | null>(null);
   const whoRef = useRef<HTMLDivElement | null>(null);
   const checkinRef = useRef<HTMLDivElement | null>(null);
   const checkoutRef = useRef<HTMLDivElement | null>(null);
-
+const dateRef =useRef<HTMLDivElement | null>(null);
   const handleClickOutside = (event: MouseEvent) => {
     if (
       openSection === "where" &&
@@ -50,6 +43,12 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
     ) {
       setOpenSection("");
     }
+    if (
+      openSection === "date" &&
+      !dateRef?.current?.contains(event?.target as Node)
+    ) {
+      setOpenSection("");
+    }
   };
 
   useEffect(() => {
@@ -61,6 +60,13 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [openSection]);
+  const handleSectionClick = (section: string) => {
+    if (openSection === section) {
+      setOpenSection(""); 
+    } else {
+      setOpenSection(section); 
+    }
+  };
 
   return (
     <div className="search-box">
@@ -68,7 +74,7 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
         <div
           className={`where-box ${openSection === "where" && "bg-white"}`}
           onClick={() => {
-            setOpenSection("where");
+            handleSectionClick("where");
           }}
           ref={whereRef}
         >
@@ -92,7 +98,7 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
                 openSection === "checkin" && "bg-white"
               }`}
               ref={checkinRef}
-              onClick={() => setOpenSection("checkin")}
+              onClick={() =>  handleSectionClick("checkin")}
             >
               <p className="checkin">Check in</p>
               <input
@@ -108,7 +114,7 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
                 openSection === "checkout" && "bg-white"
               }`}
               ref={checkoutRef}
-              onClick={() => setOpenSection("checkout")}
+              onClick={() =>  handleSectionClick("checkout")}
             >
               <p className="checkout">Check Out</p>
               <input
@@ -119,14 +125,21 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
                 readOnly
               />
             </div>
+            {(openSection === "checkin" || openSection === "checkout") && (
+          <DatePicker />
+        )}
           </>
         ) : (
-          <div className="search-item date-box">
+          <div className={`search-item date-box ${
+            openSection === "date" && "bg-white"
+          }`}
+          ref={dateRef}
+          onClick={() =>  handleSectionClick("date")}>
             <p className="date">Date</p>
             <input type="text" name="" id="" placeholder="Add dates" readOnly />
           </div>
         )}
-        {(openSection === "checkin" || openSection === "checkout") && (
+        {(openSection === "date") && (
           <DatePicker />
         )}
         {/* <!-- guest box --> */}
@@ -140,7 +153,7 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
               <div
                 className={`guests-box `}
                 onClick={() => {
-                  setOpenSection("who");
+                   handleSectionClick("who");
                 }}
                 ref={whoRef}
               >
