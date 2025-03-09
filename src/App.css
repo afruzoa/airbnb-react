@@ -52,7 +52,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
+  height: 100%;
   padding: 0 24px;
   flex: 1;
 }
@@ -169,12 +169,17 @@ hr {
 .avatar {
   color: #717171;
 }
+.menu{
+  height: 48px;
+  width: 85px;
+}
 
 .hamburger-menu {
   display: flex;
-  height: 38px;
+ 
+  background-color: white;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   border: 1px solid #ddd;
   border-radius: 30px;
   padding: 8px 8px 8px 14px;
@@ -187,8 +192,8 @@ hr {
 }
 
 .avatar {
-  height: 26px;
-  width: 26px;
+  height: 32px;
+  width: 32px;
 }
 .menu-img {
   height: 16px;
@@ -201,7 +206,9 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
+
 
 .search-bar {
   height: 66px;
@@ -213,17 +220,19 @@ hr {
   transition: all 0.2s;
   align-self: center;
   position: relative;
+  width: 850px;
+
 }
 
 .where-box {
-  width: 230px;
+  flex: 2;
   position: relative;
   border-radius: 40px;
 }
 
 .where-box p,
 .where-box input {
-  width: 150px;
+  width: 100%;
 }
 
 .where-box input,
@@ -267,28 +276,29 @@ input:focus {
   align-items: center;
   justify-content: center;
 }
-.checkin-box {
-  width: 140px;
+.checkin-box, .checkout-box {
+ flex: 1;
 }
-
+input::placeholder{
+  font-size: 14px;
+  color: #6a6a6a;
+  font-family: "Airbnb Cereal VF";
+  font-weight: 400;
+}
 .checkin-box p,
 .checkin-box input {
-  width: 92px;
+  width: 100%;
 }
 #whoInput {
   display: block;
 }
 
-.checkout-box {
-  width: 140px;
-}
-
 .checkout-box p,
 .checkout-box input {
-  width: 92px;
+  width: 100%;
 }
 .date-box {
-  width: 280px;
+  flex: 2;
 }
 
 .guests-box {
@@ -296,30 +306,33 @@ input:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .guests-box p,
 .guests-box input {
-  width: 183px;
+  width: 100%;
 }
 
 .where,
 .checkin,
 .checkout,
 .who {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .search-item {
-  padding: 12px 24px;
+  padding: 14px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 32px;
   position: relative;
 }
-
+.where-item{
+padding: 14px 32px !important;
+}
 .bg-white {
   background-color: white;
 }
@@ -337,8 +350,7 @@ input:focus {
   background-color: #dddddd;
 }
 
-.search-item:hover,
-.guests-box:hover {
+.search-item:hover {
   background-color: #dddddd;
   cursor: pointer;
 }
@@ -348,7 +360,7 @@ input:focus {
 }
 
 .search-bt {
-  padding-right: 5px;
+  padding-right: 9px;
   position: absolute;
   right: 0;
 }
@@ -373,6 +385,15 @@ input:focus {
   height: 16px;
   width: 16px;
   color: white;
+}
+.who-search{
+  flex: 2;
+}
+.who-search:hover{
+  background-color: #dddddd;
+  cursor: pointer;
+  border-radius: 32px;
+
 }
 
 .guests-search {
@@ -517,7 +538,7 @@ input:focus {
 .pet-q {
   padding-top: 4px;
   color: #797979;
-  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 .display-none {
   display: none;
@@ -645,6 +666,7 @@ input:focus {
   gap: 16px;
   align-items: center;
   padding-top: 12px;
+  margin-top: 20px;
 }
 
 .icon-section {
@@ -662,7 +684,6 @@ input:focus {
   display: flex;
   align-items: center;
   width: 90%;
-  margin-top: 20px;
   position: relative;
   justify-content: center;
 }
@@ -677,6 +698,7 @@ input:focus {
   transition: transform 0.2s ease;
   gap: 5px;
   opacity: 0.7;
+  position: relative;
 }
 
 .icon-item:hover {
@@ -686,6 +708,8 @@ input:focus {
   width: 30px;
   height: 2px;
   content: "";
+  position: absolute;
+  top: 100%;
   border-radius: 20px;
 }
 .icon-item:hover::after {
@@ -1310,7 +1334,6 @@ input:focus {
   align-items: center;
   padding: 0 24px;
   height: 64px;
-  position: sticky;
   top: 0;
   background-color: white;
   border-bottom: 1px solid #eeeeee;
@@ -1322,7 +1345,7 @@ input:focus {
   height: 650px;
   border-radius: 32px;
   font-family: "Airbnb Cereal VF";
-  overflow: auto;
+ 
 }
 .filter-container hr {
   margin: 0;
@@ -1367,7 +1390,6 @@ input:focus {
   box-shadow: 0 -2px 16px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
   padding: 16px 24px;
   height: 48px;
-  position: sticky;
   bottom: 0;
   background-color: white;
   border-bottom: 1px solid #eeeeee;
@@ -1465,7 +1487,7 @@ input:focus {
 .access-header img,
 .property-header img {
   height: 16px;
-  height: 16px;
+  width: 16px;
 }
 .hoset-header,
 .property-header,
@@ -1514,7 +1536,9 @@ input:focus {
   padding-top: 8px;
   margin: 0;
 }
-
+.filter-dropdown{
+  overflow: scroll;
+}
 /* price range */
 .horizontal-slider {
   width: 300px;

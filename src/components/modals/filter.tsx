@@ -371,13 +371,14 @@ function Filter({ closeFilter }: { closeFilter: () => void }) {
             )}
           </div>
         </div>
-        <div className="filter-footer">
+        
+      </div>
+      <div className="filter-footer">
           <div className="filter-footer-l">Clear all</div>
           <div className="filter-footer-r">
             <button>Show 970 places</button>
           </div>
         </div>
-      </div>
     </div>
   );
 }

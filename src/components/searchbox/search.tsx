@@ -78,7 +78,7 @@ const dateRef =useRef<HTMLDivElement | null>(null);
           }}
           ref={whereRef}
         >
-          <div className="search-item">
+          <div className="search-item where-item">
             <p className="where">Where</p>
             <input
               type="text"
@@ -116,7 +116,7 @@ const dateRef =useRef<HTMLDivElement | null>(null);
               ref={checkoutRef}
               onClick={() =>  handleSectionClick("checkout")}
             >
-              <p className="checkout">Check Out</p>
+              <p className="checkout">Check out</p>
               <input
                 type="text"
                 name=""
@@ -143,15 +143,15 @@ const dateRef =useRef<HTMLDivElement | null>(null);
           <DatePicker />
         )}
         {/* <!-- guest box --> */}
-        <div>
+        <div className="who-search">
           <div
-            className={`guests-search search-item ${
+            className={`guests-search search-guest ${
               openSection === "who" && "bg-white"
             }`}
           >
             <>
               <div
-                className={`guests-box `}
+                className={`guests-box search-item `}
                 onClick={() => {
                    handleSectionClick("who");
                 }}
