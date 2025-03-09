@@ -1174,18 +1174,24 @@ padding: 14px 32px !important;
 
 /* language modal */
 .lan-currency {
-  overflow: auto;
+  overflow: hidden;
   background-color: #fff;
   border-radius: 32px;
   width: 992px;
-  height: 646px;
+  /* height: 646px; */
   max-width: 100%;
-  padding: 20px;
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.lang-main-content{
+  overflow: auto;
+  padding: 20px;
+  height: 620px;
 }
 .lan-currency-tabs {
   display: flex;
@@ -1242,7 +1248,7 @@ padding: 14px 32px !important;
 .lan-currency-header {
   display: flex;
   justify-content: flex-start;
-  padding: 10px;
+  padding: 10px 20px;
 }
 .currency-header {
   font-size: 22px;
@@ -1344,6 +1350,7 @@ padding: 14px 32px !important;
   width: 568px;
   height: 650px;
   border-radius: 32px;
+  overflow: hidden;
   font-family: "Airbnb Cereal VF";
  
 }
@@ -1537,7 +1544,8 @@ padding: 14px 32px !important;
   margin: 0;
 }
 .filter-dropdown{
-  overflow: scroll;
+  overflow: auto;
+  max-height: 500px;
 }
 /* price range */
 .horizontal-slider {

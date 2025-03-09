@@ -107,71 +107,73 @@ function Language({ closeGlobal }: { closeGlobal: () => void }) {
         />
       </div>
 
-      <div className="lan-currency-tabs">
-        <button onClick={() => setActiveTab("language")}>
-          Language and region
-        </button>
-        <button onClick={() => setActiveTab("currency")}>Currency</button>
-      </div>
+      <div className="lang-main-content">
+        <div className="lan-currency-tabs">
+          <button onClick={() => setActiveTab("language")}>
+            Language and region
+          </button>
+          <button onClick={() => setActiveTab("currency")}>Currency</button>
+        </div>
 
-      <div className="currency-contents">
-        {activeTab === "currency" && (
-          <div className="currency-container">
-            <div className="currency-header">Choose a currency</div>
-            <ul className="currencies-wrapper">
-              {Currencies.map((currency) => (
-                <li key={currency.value} className="currency-item">
-                  <p className="currency-name">{currency.label}</p>
-                  <span className="currency-symbol">{currency.code}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-      <div className="lan-contents">
-        {activeTab === "language" && (
-          <div className="language-container">
-            <div className="laguage-header">
-              <div className="translation">
-                Translation
-                <span>
-                  <img
-                    src="src/assets/icon/translation.svg"
-                    alt="Translation"
-                  />
-                </span>
-                <p>
-                  Automatically translate descriptions and reviews to English.
-                </p>
+        <div className="currency-contents">
+          {activeTab === "currency" && (
+            <div className="currency-container">
+              <div className="currency-header">Choose a currency</div>
+              <ul className="currencies-wrapper">
+                {Currencies.map((currency) => (
+                  <li key={currency.value} className="currency-item">
+                    <p className="currency-name">{currency.label}</p>
+                    <span className="currency-symbol">{currency.code}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <div className="lan-contents">
+          {activeTab === "language" && (
+            <div className="language-container">
+              <div className="laguage-header">
+                <div className="translation">
+                  Translation
+                  <span>
+                    <img
+                      src="src/assets/icon/translation.svg"
+                      alt="Translation"
+                    />
+                  </span>
+                  <p>
+                    Automatically translate descriptions and reviews to English.
+                  </p>
+                </div>
+              </div>
+              <div className="language-section">
+                <div className="selected">
+                  <div className="select-language">
+                    Suggested language and region
+                  </div>
+                  <div className="language-item">
+                    <p className="language-name">English</p>
+                    <span className="language-region">United States</span>
+                  </div>
+                </div>
+                <div className="choosed">
+                  <div className="select-language">
+                    Choose a language and region
+                  </div>
+                </div>
+                <ul className="language-wrapper">
+                  {LanRegion.map((lan) => (
+                    <li key={lan.value} className="language-item">
+                      <p className="language-name">{lan.label}</p>
+                      <span className="language-region">{lan.region}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-            <div className="language-section">
-            <div className="selected">
-            <div className="select-language">
-                Suggested language and region
-              </div>
-              <div className="language-item">
-                <p className="language-name">English</p>
-                <span className="language-region">United States</span>
-              </div>
-            </div>
-              <div className="choosed">
-              <div className="select-language">
-                Choose a language and region
-              </div>
-            </div>
-            <ul className="language-wrapper">
-              {LanRegion.map((lan) => (
-                <li key={lan.value} className="language-item">
-                  <p className="language-name">{lan.label}</p>
-                  <span className="language-region">{lan.region}</span>
-                </li>
-              ))}
-            </ul>
-              </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
