@@ -125,9 +125,7 @@ const dateRef =useRef<HTMLDivElement | null>(null);
                 readOnly
               />
             </div>
-            {(openSection === "checkin" || openSection === "checkout") && (
-          <DatePicker />
-        )}
+            {(openSection === "checkin" || openSection === "checkout") && <DatePicker />}
           </>
         ) : (
           <div className={`search-item date-box ${
