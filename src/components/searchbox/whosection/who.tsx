@@ -87,14 +87,18 @@ function Who({ setGuestInput }: WhoProps) {
             <div className="plus-minus">
               <button
                 className="minus-button minus-button-child"
-                onClick={() => handleChildCountChange("decrease")}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleChildCountChange("decrease")}}
               >
                 <img src="/src/assets/icon/minus.svg" alt="" />
               </button>
               <div className="count">{childCount}</div>
               <button
                 className="plus-button plus-button-child"
-                onClick={() => handleChildCountChange("increase")}
+                onClick={(e) =>{
+                  e.stopPropagation() 
+                  handleChildCountChange("increase")}}
               >
                 <img src="/src/assets/icon/plus.svg" alt="" />
               </button>
@@ -111,14 +115,18 @@ function Who({ setGuestInput }: WhoProps) {
             <div className="plus-minus">
               <button
                 className="minus-button minus-button-infant"
-                onClick={() => handleInfantCountChange("decrease")}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleInfantCountChange("decrease")}}
               >
                 <img src="/src/assets/icon/minus.svg" alt="" />
               </button>
               <div className="count">{infantCount}</div>
               <button
                 className="plus-button plus-button-infant"
-                onClick={() => handleInfantCountChange("increase")}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleInfantCountChange("increase")}}
               >
                 <img src="/src/assets/icon/plus.svg" alt="" />
               </button>
@@ -138,18 +146,21 @@ function Who({ setGuestInput }: WhoProps) {
             <div className="plus-minus">
               <button
                 className="minus-button minus-button-pet"
-                onClick={() => handlePetCountChange("decrease")}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handlePetCountChange("decrease")}}
               >
                 <img
                   src="/src/assets/icon/minus.svg"
                   alt=""
-                  className="minus-button"
                 />
               </button>
               <div className="count">{petCount}</div>
               <button
                 className="plus-button plus-button-pet"
-                onClick={() => handlePetCountChange("increase")}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handlePetCountChange("increase")}}
               >
                 <img src="/src/assets/icon/plus.svg" alt="" />
               </button>

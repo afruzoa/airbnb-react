@@ -167,8 +167,7 @@ const dateRef =useRef<HTMLDivElement | null>(null);
                   readOnly
                 />
               </div>
-            </>
-            <div className="search-bt">
+               <div className="search-bt">
               <div className="search-button">
                 <img
                   src="src/assets/icon/search.svg"
@@ -177,6 +176,8 @@ const dateRef =useRef<HTMLDivElement | null>(null);
                 />
               </div>
             </div>
+            </>
+           
           </div>
           {openSection === "who" && <Who setGuestInput={setGuestInput} />}
         </div>
