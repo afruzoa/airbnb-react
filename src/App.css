@@ -278,6 +278,7 @@ input:focus {
 }
 .checkin-box, .checkout-box {
  flex: 1;
+height: 100%;
 }
 input::placeholder{
   font-size: 14px;
@@ -287,7 +288,8 @@ input::placeholder{
 }
 .checkin-box p,
 .checkin-box input {
-  width: 100%;
+  width: 60%;
+  margin-left:14px !important;
 }
 #whoInput {
   display: block;
@@ -295,10 +297,15 @@ input::placeholder{
 
 .checkout-box p,
 .checkout-box input {
-  width: 100%;
+  width: 60%;
+  margin-left:14px !important;
 }
 .date-box {
   flex: 2;
+}
+.date-box input,
+.date-box p {
+  margin-left:14px !important;
 }
 
 .guests-box {
@@ -306,12 +313,15 @@ input::placeholder{
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  width: 100%;
   
 }
 
 .guests-box p,
 .guests-box input {
-  width: 100%;
+  width: 60%;
+  margin-left: 14px !important;
 }
 
 .where,
@@ -323,12 +333,12 @@ input::placeholder{
 }
 
 .search-item {
-  padding: 14px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 32px;
   position: relative;
+  align-items: start;
 }
 .where-item{
 padding: 14px 32px !important;
@@ -361,8 +371,6 @@ padding: 14px 32px !important;
 
 .search-bt {
   padding-right: 9px;
-  position: absolute;
-  right: 0;
 }
 
 .search-button {
@@ -388,6 +396,7 @@ padding: 14px 32px !important;
 }
 .who-search{
   flex: 2;
+  height: 100%;
 }
 .who-search:hover{
   background-color: #dddddd;
@@ -399,6 +408,9 @@ padding: 14px 32px !important;
 .guests-search {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 32px;
 }
 /* where dropdown */
 .region-select {

@@ -9,9 +9,8 @@ function Who({ setGuestInput }: WhoProps) {
   const [infantCount, setInfantCount] = useState(0);
   const [petCount, setPetCount] = useState(0);
   useEffect(() => {
-    let guestSummary = `${adultCount + childCount} Guest${
-      adultCount + childCount !== 1 ? "s" : ""
-    }`;
+    let guestSummary = `${adultCount + childCount} Guest${adultCount + childCount !== 1 ? "s" : ""
+      }`;
 
     if (infantCount > 0) {
       guestSummary += `, ${infantCount} Infant${infantCount !== 1 ? "s" : ""}`;
@@ -58,9 +57,8 @@ function Who({ setGuestInput }: WhoProps) {
           <div className="right-who-menu">
             <div className="plus-minus">
               <button
-                className={`minus-button-adult minus-button ${
-                  adultCount === 0 ? "disabled" : ""
-                }`}
+                className={`minus-button-adult minus-button ${adultCount === 0 ? "disabled" : ""
+                  }`}
                 onClick={() => handleAdultCountChange("decrease")}
                 disabled={adultCount === 0}
               >
@@ -69,7 +67,10 @@ function Who({ setGuestInput }: WhoProps) {
               <div className="count">{adultCount}</div>
               <button
                 className="plus-button-adult plus-button"
-                onClick={() => handleAdultCountChange("increase")}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleAdultCountChange("increase")
+                }}
               >
                 <img src="/src/assets/icon/plus.svg" alt="" />
               </button>
