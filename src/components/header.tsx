@@ -6,30 +6,23 @@ import avatar from "/src/assets/icon/avatar.svg";
 import Search from "./searchbox/search";
 import Signup from "./modals/login";
 import Language from "./modals/language";
+import SearchScroll from "./searchbox/scrollsearch";
 
 function Header() {
   const [activeTab, setActiveTab] = useState<"Stays" | "Experiences">("Stays");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isGlobalOpen, setIsGlobalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const profileRef = useRef<HTMLButtonElement | null>(null);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const openGlobal = () => {
-    setIsGlobalOpen(true);
-  };
-  const closeGlobal = () => {
-    setIsGlobalOpen(false);
-  };
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+  const openGlobal = () => setIsGlobalOpen(true);
+  const closeGlobal = () => setIsGlobalOpen(false);
+
   const handleClickOutside = (event: MouseEvent) => {
-    if (
-      profileRef.current &&
-      !profileRef.current.contains(event?.target as Node)
-    ) {
+    if (profileRef.current && !profileRef.current.contains(event?.target as Node)) {
       setIsDropdownOpen(false);
     }
   };
@@ -38,38 +31,41 @@ function Header() {
     if (isDropdownOpen) {
       document.addEventListener("click", handleClickOutside);
     }
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
+    return () => document.removeEventListener("click", handleClickOutside);
   }, [isDropdownOpen]);
-  console.log(isDropdownOpen);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div>
-      <div className="header-container">
+      <div className={`header-container ${isScrolled ? "scrolled" : ""}`}>
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
 
-        <div className="header-center">
-          <button
-            className={`stay ${
-              activeTab === "Stays" ? "header-tab-active" : ""
-            }`}
-            onClick={() => setActiveTab("Stays")}
-          >
-            Stays
-          </button>
-          <button
-            className={`exp ${
-              activeTab === "Experiences" ? "header-tab-active" : ""
-            }`}
-            onClick={() => setActiveTab("Experiences")}
-          >
-            Experiences
-          </button>
-        </div>
+        {!isScrolled && (
+          <div className="header-center">
+            <button
+              className={`stay ${activeTab === "Stays" ? "header-tab-active" : ""}`}
+              onClick={() => setActiveTab("Stays")}
+            >
+              Stays
+            </button>
+            <button
+              className={`exp ${activeTab === "Experiences" ? "header-tab-active" : ""}`}
+              onClick={() => setActiveTab("Experiences")}
+            >
+              Experiences
+            </button>
+          </div>
+        )}
+        {isScrolled && <SearchScroll />}
 
         <div className="right-header">
           <div className="home-container">
@@ -115,7 +111,8 @@ function Header() {
           )}
         </div>
       </div>
-      <Search activeTab={activeTab} />
+      {!isScrolled && <Search activeTab={activeTab} isScrolled={isScrolled} />}
+
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">

@@ -34,9 +34,76 @@ main {
 /* header section */
 .header-container {
   display: flex;
-  position: relative;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 80px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 9000;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 0 80px;
+}
+.header-container.scrolled {
+  height: 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.mini-search-container {
+  width: 100%;
+  max-width: 350px;
+  height: 48px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.inner-mini-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 8px;
+}
+
+.mini-search-item {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  border-radius: 24px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mini-search-item:hover {
+  background: #f7f7f7;
+}
+
+.mini-search-guest img{
+  height: 14px;
+  width: 14px;
+  background-color: #fa2229;;
+  border-radius: 50%;
+  padding: 10px;
+}
+.mini-search-guest{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1.2;
+  font-size: 14px;
 }
 
 .logo {
@@ -44,8 +111,8 @@ main {
 }
 
 .logo img {
-  width: 102px;
-  height: 38px;
+  width: 100px;
+  height: 32px;
 }
 
 .header-center {
@@ -60,10 +127,8 @@ main {
 .exp {
   background-color: transparent;
   font-size: 16px;
-  flex-direction: column;
   font-family: "Airbnb Cereal VF";
   font-weight: 500;
-  padding: 0;
   padding: 10px 16px;
   border: unset;
   transition: 0.2s ease-in;
@@ -82,7 +147,10 @@ main {
 .home {
   text-decoration: none;
   color: black;
-  padding: 12px;
+  padding: 8px;
+  font-size: 14px;
+  font-family: "Airbnb Cereal VF";
+  font-weight: 500;
 }
 
 .home:hover {
@@ -91,16 +159,15 @@ main {
 }
 
 .home-container {
-  margin-right: 8px;
-  margin-right: 8px;
+ gap: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .global {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -118,25 +185,29 @@ main {
   display: flex;
   justify-content: end;
   align-items: center;
+  gap: 12px;
   flex: 1;
 }
 
 .menu {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .menu-img {
-  width: 100%;
-  height: 100%;
+  width: 16px;
+  height: 16px;
 }
 .nav-menu {
   list-style-type: none;
-  padding: 0px;
+  padding: 0;
   margin: 0;
 }
 
 .nav-menu li {
   padding: 10px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .nav-menu li:hover {
@@ -157,18 +228,17 @@ hr {
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  z-index: 1000;
+  z-index: 9100;
   width: 200px;
   padding: 10px;
+  margin-top: 8px;
+  min-width: 200px;
 }
 
 .menu.active .dropdown-menu {
   display: block;
 }
 
-.avatar {
-  color: #717171;
-}
 .menu{
   height: 48px;
   width: 85px;
@@ -176,15 +246,16 @@ hr {
 
 .hamburger-menu {
   display: flex;
- 
   background-color: white;
   align-items: center;
   gap: 12px;
   border: 1px solid #ddd;
   border-radius: 30px;
-  padding: 8px 8px 8px 14px;
+  padding: 8px 12px;
   position: relative;
   transition: 0.2s ease-in-out;
+  width: 85px;
+  height: 48px;
 }
 
 .hamburger-menu:hover {
@@ -194,6 +265,7 @@ hr {
 .avatar {
   height: 32px;
   width: 32px;
+  color: #717171;
 }
 .menu-img {
   height: 16px;
@@ -206,6 +278,9 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  margin-top: 80px;
+  z-index: 8000;
   
 }
 
@@ -1642,3 +1717,6 @@ padding: 14px 32px !important;
   margin: 0;
   padding-bottom: 0 !important;
 }
+
+
+
