@@ -34,11 +34,12 @@ const createTables = () => {
 
   // Many-to-Many relationship table
   db.run(
-    `CREATE TABLE IF NOT EXISTS category_room (
+    `CREATE TABLE IF NOT EXISTS room_categories (
       category_id INTEGER,
       room_id INTEGER,
       FOREIGN KEY(category_id) REFERENCES categories(id),
       FOREIGN KEY(room_id) REFERENCES rooms(id)
+      PRIMARY KEY(category_id, room_id)
     );`
   );
 };

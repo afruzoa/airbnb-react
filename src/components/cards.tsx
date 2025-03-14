@@ -128,7 +128,6 @@ const Cards = () => {
       {/* // <!--center section  --> */}
       <div className="main-container">
         <div className="main">
-          <div className="main-header">Past experiences</div>
           <div className="main-pic" id="main-pic">
             {rooms?.map(
               (room: {
