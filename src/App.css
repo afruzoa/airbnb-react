@@ -302,10 +302,12 @@ input::placeholder{
 }
 .date-box {
   flex: 2;
+  
 }
 .date-box input,
 .date-box p {
   margin-left:14px !important;
+
 }
 
 .guests-box {
@@ -327,7 +329,8 @@ input::placeholder{
 .where,
 .checkin,
 .checkout,
-.who {
+.who,
+.date {
   font-size: 12px;
   font-weight: 500;
 }
@@ -673,7 +676,23 @@ padding: 14px 32px !important;
   outline: 1px solid #000;
   border-collapse: separate;
   border: 0px;
+  background: #e4e7e7 !important;
 }
+.CalendarDay__default{
+  border: none !important;
+}
+.DayPicker_weekHeader_ul{
+  font-size: 12px;
+  font-weight: 500;
+}
+.DayPickerNavigation_button__default{
+  border: none !important;
+}
+.CalendarMonth_table{
+  border-collapse: unset !important;
+}
+
+
 
 /* icon section */
 .category-icon {

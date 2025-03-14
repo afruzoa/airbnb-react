@@ -128,7 +128,8 @@ const dateRef =useRef<HTMLDivElement | null>(null);
             {(openSection === "checkin" || openSection === "checkout") && <DatePicker />}
           </>
         ) : (
-          <div className={`search-item date-box ${
+          <div className="date-box">
+             <div className={`search-item  ${
             openSection === "date" && "bg-white"
           }`}
           ref={dateRef}
@@ -136,6 +137,8 @@ const dateRef =useRef<HTMLDivElement | null>(null);
             <p className="date">Date</p>
             <input type="text" name="" id="" placeholder="Add dates" readOnly />
           </div>
+          </div>
+         
         )}
         {(openSection === "date") && (
           <DatePicker />
