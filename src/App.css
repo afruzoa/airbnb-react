@@ -657,6 +657,8 @@ padding: 14px 32px !important;
 }
 /* checkin */
 .checkin-container {
+  height: 480px;
+  overflow: scroll;
   box-shadow: 0 3px 12px 0 rgb(0 0 0/0.15);
   left: 0;
   right: 0;
@@ -671,6 +673,12 @@ padding: 14px 32px !important;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.DayPicker_transitionContainer {
+  height: 410px !important;
+}
+.DayPicker__horizontal {
+  width: 700px !important;
 }
 .checkin-header {
   border: 2px solid #ebebeb;
@@ -731,17 +739,26 @@ padding: 14px 32px !important;
 
 /* flex */
 
-.month-buttons {
+.cal-img{
+  width: 32px;
+  height: 32px;
+}
+.month-button{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  gap: 16px;
+  align-items: center;
+  width: 122px;
+  height: 144px;
+}
+.month-buttons{
+  display: flex;
 }
 
 /* datepicker */
 .CalendarDay {
-  width: 38px !important;
-  height: 38px !important;
+  width: 48px !important;
+  height: 48px !important;
   border: 0px;
   border-collapse: separate;
   border-radius: 50%;
@@ -760,6 +777,10 @@ padding: 14px 32px !important;
   font-size: 12px;
   font-weight: 500;
 }
+.DayPicker{
+  width: 700px;
+}
+
 .DayPickerNavigation_button__default{
   border: none !important;
 }
@@ -768,6 +789,9 @@ padding: 14px 32px !important;
 }
 
 
+.micro-container{
+  padding: 14px 4px;
+}
 
 /* icon section */
 .category-icon {
@@ -864,6 +888,9 @@ padding: 14px 32px !important;
   height: 12px;
 }
 
+.CalendarDay__selected{
+  background-color: #000 !important;
+}
 /* main */
 
 .main-container {
