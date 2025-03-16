@@ -657,14 +657,15 @@ padding: 14px 32px !important;
 }
 /* checkin */
 .checkin-container {
-  height: 480px;
-  overflow: scroll;
-  box-shadow: 0 3px 12px 0 rgb(0 0 0/0.15);
+  width: 850px;
+  height: 500px;
+  overflow-y: scroll;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   left: 0;
   right: 0;
   top: 100%;
   margin-top: 10px;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   border-radius: 32px;
   overflow-x: hidden;
   z-index: 100;
@@ -675,14 +676,16 @@ padding: 14px 32px !important;
   align-items: center;
 }
 .DayPicker_transitionContainer {
-  height: 410px !important;
+  height: auto !important;
+  overflow: visible !important;
+
 }
 .DayPicker__horizontal {
   width: 700px !important;
 }
 .checkin-header {
   border: 2px solid #ebebeb;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 303px;
   background-color: #ebebeb;
@@ -690,51 +693,70 @@ padding: 14px 32px !important;
   margin: 0 auto;
   border-radius: 30px;
   display: flex;
+  margin-bottom: 20px;
 }
 
 .checkin-date,
 .checkin-month,
 .checkin-flex {
   background-color: #ebebeb;
-  padding: 8px 12px;
+  padding: 8px 16px;
   margin: 4px 2px 4px 0;
   font-size: 14px;
-  font-family: "roboto";
+  font-family: "Airbnb Cereal VF";
   border-radius: 100px;
   position: relative;
   text-align: center;
   border: unset;
   flex: 1;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 .checkin-date:hover,
 .checkin-month:hover,
 .checkin-flex:hover {
   background-color: #dddddd;
+  position: relative;
+}
+.micro-date:hover {
+  background-color: #f7f7f7;
 }
 .micro-date {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid;
-  padding: 4px 14px;
-  border-radius: 20px;
+  border: 1px solid #dddddd;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-family: "Airbnb Cereal VF";
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+.checkin-date.active,
+.checkin-month.active,
+.checkin-flex.active {
+  background-color: white;
 }
 .micro-flex {
-  padding: 8px 40px;
+  padding: 8px 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  font-size: 12px;
+  margin-top: 10px;
+  gap:8px ;
 }
 .micro-date span,
 .exact-date {
   white-space: nowrap;
+  font-size: 12px;
 }
-.micro-flex img{
+.micro-date img {
   width: 12px;
   height: 12px;
+  margin-right: 4px;
 }
-
 
 
 /* flex */
@@ -746,48 +768,206 @@ padding: 14px 32px !important;
 .month-button{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 122px;
-  height: 144px;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background-color: white;
+  font-family: "Airbnb Cereal VF";
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+  cursor: pointer;
+  transition: border 0.3s ease;
 }
-.month-buttons{
-  display: flex;
+.month-button:hover {
+  border-color: #717171;
 }
 
+.month-button img {
+  width: 16px;
+  height: 16px;
+  margin-bottom: 5px;
+}
+
+.month-button div {
+  line-height: 1.2;
+}
+.month-buttons{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); 
+  gap: 10px;
+  width: 90%;
+  padding: 0 40px;
+  overflow: hidden;
+}
+.month-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.flex-container{
+  width: 800px;
+  padding: 1rem 0;
+  border-radius: 32px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flex-center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.flex-center h1 {
+  font-family: "Airbnb Cereal VF";
+  font-size: 16px;
+  font-weight: 500;
+  color: #222222;
+  margin-bottom: 10px;
+}
+.duration-btn {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.duration-btn button.active {
+  border: 2px solid #000000;
+}
+.slider-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.slider-arrow {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  color: #222222;
+  transition: color 0.3s ease;
+}
+
+.slider-arrow:hover {
+  color: #717171;
+}
+
+.slider-arrow.prev {
+  position: absolute;
+  left: 0;
+}
+
+.slider-arrow.next {
+  position: absolute;
+  right: 0;
+}
+.duration-btn button {
+  padding: 8px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 50px;
+  background-color: white;
+  font-family: "Airbnb Cereal VF";
+  font-size: 14px;
+  font-weight: 500;
+  color: #222222;
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
+.duration-btn button:hover {
+  border-color: #717171;
+}
 /* datepicker */
+
 .CalendarDay {
-  width: 48px !important;
-  height: 48px !important;
-  border: 0px;
+  width: 36px !important;
+  height: 36px !important;
+  border: none !important;
   border-collapse: separate;
   border-radius: 50%;
-  margin: 10px;
+  margin: 4px;
+  font-family: "Airbnb Cereal VF" !important;
+  font-size: 14px !important;
+  line-height: 40px;
 }
 .CalendarDay__default:hover {
-  outline: 1px solid #000;
-  border-collapse: separate;
-  border: 0px;
   background: #e4e7e7 !important;
+  border-radius: 50% !important;
 }
 .CalendarDay__default{
   border: none !important;
+  background: transparent !important;
+  color: #222222 !important;
 }
 .DayPicker_weekHeader_ul{
   font-size: 12px;
   font-weight: 500;
+  color: #717171;
+  font-family: "Airbnb Cereal VF";
+}
+.DayPicker_weekHeader_li {
+  padding: 8px 0;
 }
 .DayPicker{
-  width: 700px;
+  width: 800px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+}
+.DayPickerNavigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 10px;
 }
 
 .DayPickerNavigation_button__default{
   border: none !important;
+  background: transparent;
+  padding: 10px;
+}
+.DayPickerNavigation_button__default img {
+  width: 16px;
+  height: 16px;
+  filter: invert(50%);
+}
+.DayPickerNavigation_button__default:hover {
+  background: #e4e7e7;
+  border-radius: 50%;
+}
+.CalendarMonth_caption {
+  font-family: "Airbnb Cereal VF";
+  font-size: 16px;
+  font-weight: 500;
+  color: #222222;
+  padding: 10px 0;
+  text-align: center;
 }
 .CalendarMonth_table{
-  border-collapse: unset !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
 }
-
+.CalendarMonth {
+  padding: 0 !important;
+  width: 375px !important;
+}
+.DayPickerNavigation_rightButton__horizontalDefault{
+  right: -60px !important;
+}
+.DayPickerNavigation_button__horizontalDefault{
+  padding:0 !important;
+  top: 10px;
+}
 
 .micro-container{
   padding: 14px 4px;
@@ -890,6 +1070,17 @@ padding: 14px 32px !important;
 
 .CalendarDay__selected{
   background-color: #000 !important;
+  color: white !important;
+  border-radius: 50%;
+}
+.CalendarDay__blocked_out_of_range{
+  color: #cccccc !important;
+}
+.DayPicker_weekHeader_ul{
+  font-size: 12px;
+  font-weight: 500;
+  color: #717171;
+  font-family: "Airbnb Cereal VF";
 }
 /* main */
 

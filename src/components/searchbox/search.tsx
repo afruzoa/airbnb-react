@@ -7,7 +7,8 @@ function Search({ activeTab }: { activeTab: "Stays" | "Experiences" }) {
   const [selectedRegion, setSelectedRegion] = useState<string>("");
   const [openSection, setOpenSection] = useState("");
   const [guestInput, setGuestInput] = useState<string>("");
-
+  const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
+  const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
   const handleRegionSelect = (region: string) => {
     setSelectedRegion(region);
     setOpenSection("");

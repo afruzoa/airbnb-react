@@ -18,13 +18,16 @@ function DatePickerComponent() {
   return (
     <div className="checkin-container">
       <div className="checkin-header">
-        <button className="checkin-date" onClick={(e) => handleTabChange("dates", e)}>
+        <button className={`checkin-date ${activeTab === "dates" ? "active" : ""}`} 
+  onClick={(e) => handleTabChange("dates", e)}>
           Dates
         </button>
-        <button className="checkin-month" onClick={(e) => handleTabChange("months", e)}>
+        <button className={`checkin-month ${activeTab === "months" ? "active" : ""}`} 
+  onClick={(e) => handleTabChange("months", e)}>
           Months
         </button>
-        <button className="checkin-flex" onClick={(e) => handleTabChange("flexible", e)}>
+        <button className={`checkin-flex ${activeTab === "flexible" ? "active" : ""}`} 
+  onClick={(e) => handleTabChange("flexible", e)}>
           Flexible
         </button>
       </div>
@@ -41,11 +44,12 @@ function DatePickerComponent() {
                 setSelectedStartDate(startDate);
                 setSelectedEndDate(endDate);
               }}
-              initialVisibleMonth={() => moment().add(2, "M")}
+              initialVisibleMonth={() => moment("2025-03-01").add(2, "M")}
               numberOfMonths={2}
               noBorder={true}
               hideKeyboardShortcutsPanel={true}
-              horizontalMargin={50}
+              horizontalMargin={0}
+              firstDayOfWeek={1}
               customArrowIcon={<img src="src/assets/icon/search.svg" alt="arrow" />}
             />
           </div>
