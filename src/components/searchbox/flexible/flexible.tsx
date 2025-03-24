@@ -59,9 +59,7 @@ function Flexible() {
         <div className="month-btn">
           <h1>When do you want to go?</h1>
           <div className="slider-container">
-            <button className="slider-arrow prev" onClick={handlePrev}>
-              ←
-            </button>
+            <img className="slider-arrow prev" src="src/assets/icon/prev.svg" alt="" onClick={handlePrev}/>
             <div className="month-buttons">
               {displayedMonths.map((month) => (
                 <button key={month.key} className="month-button">
@@ -71,9 +69,7 @@ function Flexible() {
                 </button>
               ))}
             </div>
-            <button className="slider-arrow next" onClick={handleNext}>
-              →
-            </button>
+            <img className="slider-arrow next" src="src/assets/icon/next.svg" alt="" onClick={handleNext}/>
           </div>
         </div>
       </div>
