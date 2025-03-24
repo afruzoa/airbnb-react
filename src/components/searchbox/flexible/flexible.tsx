@@ -2,13 +2,12 @@ import { useState } from "react";
 
 function Flexible() {
   const [stayDuration, setStayDuration] = useState<"Weekend" | "Week" | "Month" | null>(null);
-  const [sliderIndex, setSliderIndex] = useState(0); // برای مدیریت موقعیت اسلایدر
+  const [sliderIndex, setSliderIndex] = useState(0);
 
   const handleDurationClick = (duration: "Weekend" | "Week" | "Month") => {
     setStayDuration(duration);
   };
 
-  // تولید لیست ماه‌ها
   const months = [...Array(12)].map((_, i) => {
     const currentMonth = new Date();
     currentMonth.setMonth(currentMonth.getMonth() + i);
@@ -17,9 +16,8 @@ function Flexible() {
     return { monthName, year, key: i };
   });
 
-  // مدیریت فلش‌های اسلایدر
-  const visibleMonths = 6; // تعداد ماه‌های قابل مشاهده
-  const maxIndex = Math.ceil(months.length / visibleMonths) - 1; // حداکثر اندیس اسلایدر
+  const visibleMonths = 6;
+  const maxIndex = Math.ceil(months.length / visibleMonths) - 1; 
 
   const handlePrev = () => {
     setSliderIndex((prev) => (prev > 0 ? prev - 1 : 0));
@@ -29,7 +27,6 @@ function Flexible() {
     setSliderIndex((prev) => (prev < maxIndex ? prev + 1 : maxIndex));
   };
 
-  // نمایش 6 ماه بر اساس اندیس اسلایدر
   const displayedMonths = months.slice(sliderIndex * visibleMonths, (sliderIndex + 1) * visibleMonths);
 
   return (
